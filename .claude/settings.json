@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.check-form.cjs\")"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(New-Item -ItemType Directory -Force \"public\\\\images\\\\tourisme\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"scripts\")",
+      "PowerShell(\"folders ready\")",
+      "PowerShell(node scripts/optimize-tourisme.cjs)",
+      "PowerShell(Get-ChildItem \"public\\\\images\\\\tourisme\" -File | ForEach-Object { \"{0,-16} {1,8:N0} KB\" -f $_.Name, \\($_.Length/1KB\\) })",
+      "PowerShell(Remove-Item \"scripts\\\\optimize-tourisme.cjs\" -Force; if \\(\\(Get-ChildItem \"scripts\" -Force | Measure-Object\\).Count -eq 0\\) { Remove-Item \"scripts\" -Force }; \"cleaned\")",
+      "PowerShell($dl = \"$env:USERPROFILE\\\\Downloads\"; $p = Join-Path $dl \"Marseille_Header_Article39.webp\"; if \\(Test-Path $p\\) { \"{0:N0} bytes\" -f \\(Get-Item $p\\).Length } else { \"MISSING\"; Get-ChildItem $dl -File | Where-Object { $_.Name -match 'Marseille|Header|Article' } | Select-Object Name })",
+      "PowerShell(node scripts/optimize-one.cjs; Remove-Item \"scripts\\\\optimize-one.cjs\" -Force; if \\(\\(Get-ChildItem \"scripts\" -Force | Measure-Object\\).Count -eq 0\\) { Remove-Item \"scripts\" -Force }; \"--- folder ---\"; Get-ChildItem \"public\\\\images\\\\tourisme\" -File | ForEach-Object { \"{0,-24} {1,7:N0} KB\" -f $_.Name, \\($_.Length/1KB\\) })",
+      "PowerShell($p = Start-Process -FilePath \"npm.cmd\" -ArgumentList \"run\",\"dev\" -RedirectStandardOutput \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.dev.out.log\" -RedirectStandardError \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.dev.err.log\" -PassThru -WindowStyle Hidden; $p.Id | Out-File \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.dev.pid\" -Encoding ascii; \"started pid $\\($p.Id\\)\")",
+      "PowerShell(\"==ERR==\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-scrollstory.cjs\")",
+      "PowerShell(\"diag done\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-themes.cjs\")",
+      "PowerShell($dl = \"$env:USERPROFILE\\\\Downloads\"; $p = Join-Path $dl \"92bea1fca412bf0dc413371a426c533593ceebb4-3864x1583.jpg\"; if \\(Test-Path $p\\) { \"{0:N0} bytes\" -f \\(Get-Item $p\\).Length } else { \"MISSING\"; Get-ChildItem $dl -File | Where-Object { $_.Name -match '92bea1|3864' } | Select-Object Name })",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-hero.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.investigate.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.find-word.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.shot-hero.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.check-hero-text.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-all.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-hover.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.verify-proc.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.shot-proc.cjs\")",
+      "PowerShell($dl = \"$env:USERPROFILE\\\\Downloads\"; $names = @\\(\"WhatsApp_Image_2026-06-17_at_16_24_39.jpeg\",\"WhatsApp_Image_2026-06-17_at_16_04_59.jpeg\",\"WhatsApp_Image_2026-06-17_at_16_04_52.jpeg\"\\); foreach \\($n in $names\\) { $p = Join-Path $dl $n; if \\(Test-Path $p\\) { \"{0,-50} {1,9:N0} bytes\" -f $n, \\(Get-Item $p\\).Length } else { \"MISSING: $n\"; Get-ChildItem $dl -File | Where-Object { $_.Name -match 'WhatsApp' } | Select-Object -ExpandProperty Name } })",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.test-draw.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.diag-draw.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.shot-cell.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.diag-cell.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.shot-el.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.test-proc2.cjs\")",
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.check-labels.cjs\")"
+    ]
+  }
+}
