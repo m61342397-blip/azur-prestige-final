@@ -6,7 +6,7 @@ import { engine, Engine } from "@/lib/engine";
 
 const services = [
   { icon: Camera,      title: "Tourisme Accompagné",  subtitle: "Marseille · Provence",        desc: "Votre chauffeur reste à vos côtés toute la journée (~ 6 à 8h). Visites, pauses repas, escapades calanques — un accompagnement complet, sur mesure.", tag: "Notre spécialité" },
-  { icon: Plane,       title: "Transferts Aéroport",  subtitle: "MP · LYS · NCE",             desc: "Prise en charge dès l'atterrissage. Suivi de vol en temps réel. Accueil personnalisé avec pancarte.", tag: "Prise en charge" },
+  { icon: Plane,       title: "Transferts Aéroport",  subtitle: "MP · LYS · NCE",             desc: "Prise en charge dès l'atterrissage. Accueil personnalisé avec pancarte.", tag: "Prise en charge" },
   { icon: Train,       title: "Prise en charge Gare", subtitle: "Saint-Charles · TGV",         desc: "Accueil à quai, aide aux bagages. Connexions TGV, Intercités et Eurostar. Ponctualité garantie.", tag: "Prise en charge" },
   { icon: HeartPulse,  title: "Transport Médical",    subtitle: "Hôpitaux · Cliniques · RDV", desc: "Transferts médicalisés vers hôpitaux, cliniques et rendez-vous. Chauffeur attentif, véhicule adapté, discrétion assurée.", tag: null },
   { icon: Briefcase,   title: "Déplacements Pro",     subtitle: "Business Class",              desc: "Contrat entreprise, facturation mensuelle, confidentialité totale. Chauffeur dédié sur demande.", tag: null },

@@ -66,9 +66,8 @@ const circuits = [
     accent: "#0097A7",
     pageGlow: "0,151,167",
     glowPos: "60% 30%",
-    desc: "Centre historique d'Aix-en-Provence puis route vers Cassis. Découvrez le port pittoresque de Cassis et la vue sur le Cap Canaille — la plus haute falaise maritime d'Europe, culminant à ~ 400 mètres.",
+    desc: "Cap sur Cassis. Découvrez le port pittoresque de Cassis et la vue sur le Cap Canaille — la plus haute falaise maritime d'Europe, culminant à ~ 400 mètres.",
     monuments: [
-      "Centre d'Aix-en-Provence",
       "Port de Cassis",
       "Cap Canaille — ~ 400m, plus haute falaise maritime d'Europe",
       "Calanques depuis le port",

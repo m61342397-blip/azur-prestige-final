@@ -6,11 +6,10 @@ import { engine, Engine } from "@/lib/engine";
 
 const faqs = [
   { q: "Comment réserver un taxi à Marseille ?", a: "Par téléphone, WhatsApp ou formulaire en ligne. Confirmation immédiate par SMS avec le nom et le numéro du chauffeur." },
-  { q: "Quels sont vos tarifs pour l'aéroport ?", a: "Tarif fixe depuis l'aéroport Marseille-Provence : 65€ vers le centre-ville. Pas de supplément en cas de retard de vol." },
+  { q: "Quels sont vos tarifs pour l'aéroport ?", a: "Tarif fixe depuis l'aéroport Marseille-Provence : 65€ vers le centre-ville." },
   { q: "Êtes-vous disponibles la nuit et le week-end ?", a: "Oui, 24h/7j et 365 jours par an. Nos tarifs ne changent pas selon l'heure ou le jour." },
   { q: "Proposez-vous des contrats entreprise ?", a: "Oui, facturation mensuelle, chauffeur dédié sur demande, reporting des courses. Contactez-nous pour un devis." },
   { q: "Puis-je réserver pour un groupe ?", a: "Oui, notre Van (6 passagers) et Grand Van (8 passagers) sont disponibles pour groupes, avec grande soute à bagages." },
-  { q: "Comment fonctionne le suivi de vol ?", a: "Nous surveillons votre vol en temps réel. Si votre avion a du retard, votre chauffeur adapte son heure d'arrivée automatiquement." },
 ];
 
 export default function FAQ() {

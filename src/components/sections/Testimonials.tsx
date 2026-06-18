@@ -1,18 +1,25 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { engine, Engine } from "@/lib/engine";
 
-const testimonials = [
-  { quote: "Circuit privé aux Calanques avec notre famille. Le chauffeur connaissait chaque détail de la région et est resté avec nous toute la journée. Une expérience mémorable.", name: "Alexandra M.", role: "Directrice commerciale, Paris", rating: 5 },
-  { quote: "Journée accompagnée à Marseille : Vieux-Port, MuCEM, Bonne Mère… Notre chauffeur nous a guidés, attendu pendant le déjeuner et raconté l'histoire de chaque lieu. Parfait.", name: "James & Sarah T.", role: "Touristes, Londres", rating: 5 },
-  { quote: "Escapade à Cassis et Aix avec un chauffeur discret et attentionné. Pas de stress, pas de limite de temps — exactement ce qu'on cherchait pour découvrir la Provence.", name: "Laurent V.", role: "CEO, Groupe immobilier Marseille", rating: 5 },
-];
+type Avis = { id: string; nom: string; note: number; commentaire: string };
 
 export default function Testimonials() {
   const secRef   = useRef<HTMLDivElement>(null);
   const headRef  = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  const [avis, setAvis] = useState<Avis[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/avis")
+      .then((r) => r.json())
+      .then((j) => setAvis(Array.isArray(j.avis) ? j.avis : []))
+      .catch(() => setAvis([]))
+      .finally(() => setLoaded(true));
+  }, []);
 
   useEffect(() => {
     const unsub = engine.subscribe(() => {
@@ -31,7 +38,7 @@ export default function Testimonials() {
       });
     });
     return unsub;
-  }, []);
+  }, [avis]);
 
   return (
     <section ref={secRef} className="py-24 lg:py-36 border-t border-white/[0.04]">
@@ -42,24 +49,47 @@ export default function Testimonials() {
             Ils nous font<br /><span className="text-[#A1A1AA]">confiance.</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
-          {testimonials.map((t, i) => (
-            <div key={i} ref={el => { if (el) cardsRef.current[i] = el; }}
-              className="bg-transparent p-8 flex flex-col gap-6 hover:bg-white/[0.015] transition-colors duration-500"
-              style={{ opacity: 1 }}>
-              <div className="flex gap-1">
-                {[...Array(t.rating)].map((_, j) => (
-                  <div key={j} className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-                ))}
-              </div>
-              <p className="text-[#8A8A8A] text-base font-light leading-relaxed flex-1 italic">"{t.quote}"</p>
-              <div>
-                <div className="text-white text-sm font-light">{t.name}</div>
-                <div className="text-[#A1A1AA] text-[11px] font-light tracking-wide mt-1">{t.role}</div>
-              </div>
+
+        {loaded && avis.length === 0 ? (
+          <div className="border border-white/[0.06] py-16 px-8 text-center">
+            <p className="text-[#8A8A8A] text-base font-light leading-relaxed mb-6">
+              Aucun avis pour le moment.<br />Soyez le premier à partager votre expérience.
+            </p>
+            <a href="/laisser-un-avis"
+              className="inline-block bg-[#D4AF37] text-[#050505] px-8 py-3.5 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300">
+              Laisser un avis
+            </a>
+          </div>
+        ) : (
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+              {avis.map((t, i) => (
+                <div key={t.id} ref={el => { if (el) cardsRef.current[i] = el; }}
+                  className="bg-transparent p-8 flex flex-col gap-6 hover:bg-white/[0.015] transition-colors duration-500"
+                  style={{ opacity: 1 }}>
+                  <div className="flex gap-1">
+                    {[...Array(t.note)].map((_, j) => (
+                      <div key={j} className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+                    ))}
+                  </div>
+                  <p className="text-[#8A8A8A] text-base font-light leading-relaxed flex-1 italic">&ldquo;{t.commentaire}&rdquo;</p>
+                  <div>
+                    <div className="text-white text-sm font-light">{t.nom}</div>
+                    <div className="text-[#A1A1AA] text-[11px] font-light tracking-wide mt-1">Client vérifié</div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Lien discret vers le formulaire d'avis */}
+            <div className="mt-12 text-center">
+              <a href="/laisser-un-avis"
+                className="inline-block text-[#707070] text-xs font-light uppercase tracking-[0.2em] hover:text-[#D4AF37] transition-colors duration-300 border-b border-white/[0.08] hover:border-[#D4AF37] pb-1">
+                Laisser un avis
+              </a>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

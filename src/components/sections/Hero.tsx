@@ -21,14 +21,14 @@ export default function Hero() {
   useEffect(() => {
     (async () => {
       const { animate } = await import("animejs");
-      animate(imgWrap.current!,  { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"], duration: 1800, ease: "cubicBezier(0.77,0,0.175,1)" });
-      animate(lineRef.current!,  { scaleY: [0, 1], duration: 1100, delay: 500, ease: "cubicBezier(0.77,0,0.175,1)" });
-      animate(eyeRef.current!,   { opacity: [0, 1], translateY: [16, 0], duration: 700, delay: 750, ease: "outExpo" });
-      animate(w1Ref.current!,    { translateY: ["108%", "0%"], duration: 1100, delay: 950, ease: "cubicBezier(0.77,0,0.175,1)" });
-      animate(w2Ref.current!,    { translateY: ["108%", "0%"], duration: 1100, delay: 1100, ease: "cubicBezier(0.77,0,0.175,1)" });
-      animate(subRef.current!,   { opacity: [0, 1], translateY: [20, 0], duration: 800, delay: 1350, ease: "outExpo" });
-      animate(ctaRef.current!,   { opacity: [0, 1], translateY: [16, 0], duration: 700, delay: 1550, ease: "outExpo" });
-      animate(barRef.current!,   { opacity: [0, 1], duration: 600, delay: 1900, ease: "outExpo" });
+      animate(imgWrap.current!,  { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"], duration: 900, ease: "cubicBezier(0.77,0,0.175,1)" });
+      animate(lineRef.current!,  { scaleY: [0, 1], duration: 550, delay: 250, ease: "cubicBezier(0.77,0,0.175,1)" });
+      animate(eyeRef.current!,   { opacity: [0, 1], translateY: [16, 0], duration: 380, delay: 380, ease: "outExpo" });
+      animate(w1Ref.current!,    { translateY: ["108%", "0%"], duration: 600, delay: 480, ease: "cubicBezier(0.77,0,0.175,1)" });
+      animate(w2Ref.current!,    { translateY: ["108%", "0%"], duration: 600, delay: 560, ease: "cubicBezier(0.77,0,0.175,1)" });
+      animate(subRef.current!,   { opacity: [0, 1], translateY: [20, 0], duration: 420, delay: 680, ease: "outExpo" });
+      animate(ctaRef.current!,   { opacity: [0, 1], translateY: [16, 0], duration: 380, delay: 780, ease: "outExpo" });
+      animate(barRef.current!,   { opacity: [0, 1], duration: 320, delay: 950, ease: "outExpo" });
     })();
   }, []);
 
@@ -79,8 +79,8 @@ export default function Hero() {
         <div ref={bgRef}
           className="responsive-bg absolute inset-[-30%] bg-cover bg-center will-change-transform"
           style={{
-            "--bg-desktop": "url('/images/tourisme/hero-marseille.jpg')",
-            "--bg-mobile":  "url('/images/tourisme/hero-marseille-mobile.jpg')",
+            "--bg-desktop": "url('/images/tourisme/marseille-vieux-port-hero.jpg')",
+            "--bg-mobile":  "url('/images/tourisme/marseille-vieux-port-hero.jpg')",
           } as React.CSSProperties} />
       </div>
 

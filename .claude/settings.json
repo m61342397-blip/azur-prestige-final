@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.check-form.cjs\")"
+      "PowerShell(node \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.check-form.cjs\")",
+      "Bash(echo \"exit: $?\")",
+      "PowerShell(\"=== docs? ===\")",
+      "PowerShell(npx tsc --noEmit)",
+      "PowerShell(npm run lint 2>&1)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object LocalAddress,LocalPort,State,OwningProcess | Format-Table -AutoSize; \"---procs---\"; Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | ForEach-Object { try { \\(Get-Process -Id $_.OwningProcess\\).ProcessName } catch { \"pid $\\($_.OwningProcess\\) gone\" } } | Sort-Object -Unique)",
+      "PowerShell($ready=$false; for \\($i=0; $i -lt 40; $i++\\) { if \\(Test-Path \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.devserver.log\"\\) { $log = Get-Content \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.devserver.log\" -Raw; if \\($log -match \"Ready in|started server|Local:\\\\s+http\"\\) { $ready=$true; break } }; Start-Sleep -Milliseconds 500 }; \"ready=$ready\"; \"---log tail---\"; if \\(Test-Path \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.devserver.log\"\\) { Get-Content \"d:\\\\taxi-v4-modifie\\\\taxi-v4\\\\.devserver.log\" -Tail 20 })"
     ]
   }
 }

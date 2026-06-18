@@ -5,7 +5,7 @@ import { engine, Engine } from "@/lib/engine";
 
 const stats = [
   { value: 24,    suffix: "h/7j", label: "Disponibilité",  desc: "Toujours là pour vous" },
-  { value: 12,    suffix: " ans",  label: "D'expérience",    desc: "Sur les routes de Marseille" },
+  { value: 3,     suffix: " ans",  label: "D'expérience",    desc: "Une équipe jeune & dynamique" },
   { value: 15000, suffix: "+",     label: "Clients servis",  desc: "Particuliers & entreprises" },
   { value: 4.9,   suffix: "/5",    label: "Note moyenne",    desc: "847 avis vérifiés" },
 ];

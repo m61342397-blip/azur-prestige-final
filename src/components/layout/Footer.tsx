@@ -71,6 +71,7 @@ export default function Footer() {
                 { label: "FAQ",                href: "#faq"              },
                 { label: "Nos véhicules",      href: "#vehicules"        },
                 { label: "Devis",              href: "#calculateur"      },
+                { label: "Laisser un avis",    href: "/laisser-un-avis"  },
                 { label: "Contact",            href: "#contact"          },
               ].map((item) => (
                 <li key={item.label}>

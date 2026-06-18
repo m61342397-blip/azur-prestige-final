@@ -80,7 +80,6 @@ export default function CGV() {
             <ul className="mt-3 space-y-2 list-none">
               {[
                 "Tarifs fixes : pas de compteur, pas de surprise en fin de course",
-                "Aucun supplément pour les vols en retard (suivi en temps réel inclus)",
                 "Aucune majoration de nuit, week-end ou jour férié non annoncée",
                 "Supplément bagages volumineux ou animaux sur demande préalable",
                 "Péages et parkings inclus sauf mention contraire",
