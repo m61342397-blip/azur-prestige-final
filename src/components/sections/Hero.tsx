@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, ShieldCheck } from "lucide-react";
 import { engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 export default function Hero() {
   const bgRef      = useRef<HTMLDivElement>(null);  // parallax image
@@ -98,9 +99,15 @@ export default function Hero() {
       {/* ── Main content ── */}
       <div ref={headRef} className="relative z-10 max-w-[1400px] mx-auto px-8 lg:px-20 w-full will-change-transform"
         style={{ textShadow: "0 2px 28px rgba(0,0,0,0.55)" }}>
-        <div ref={eyeRef} className="flex items-center gap-3 mb-8" style={{ opacity: 0 }}>
-          <div className="w-5 h-px bg-[#D4AF37]" />
-          <span className="text-[10px] tracking-[0.45em] uppercase font-light" style={{ color: "#D4AF37" }}>Tourisme Accompagné · Marseille</span>
+        <div ref={eyeRef} className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-8" style={{ opacity: 0 }}>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-px bg-[#D4AF37]" />
+            <span className="text-[10px] tracking-[0.45em] uppercase font-light" style={{ color: "#D4AF37" }}>Tourisme Accompagné · Marseille</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 border border-[#D4AF37]/40 px-2.5 py-1 bg-black/30 backdrop-blur-sm">
+            <ShieldCheck size={12} className="text-[#D4AF37] shrink-0" />
+            <span className="text-[9px] tracking-[0.25em] uppercase font-light" style={{ color: "#ffffff" }}>Taxi agréé par l'État</span>
+          </div>
         </div>
 
         <h1 className="font-light leading-[0.85] tracking-[-0.02em] mb-10"
@@ -120,10 +127,12 @@ export default function Hero() {
         </p>
 
         <div ref={ctaRef} className="flex items-center gap-4 flex-wrap" style={{ opacity: 0 }}>
-          <a href="tel:+33666323817"
-            className="flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300">
-            Réserver maintenant <ArrowRight size={14} />
-          </a>
+          <ContactChoice
+            mode="call"
+            align="left"
+            className="flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
+            trigger={<>Réserver maintenant <ArrowRight size={14} /></>}
+          />
           <a href="#services"
             className="border border-white/30 px-8 py-4 text-sm font-light tracking-[0.1em] uppercase hover:border-[#D4AF37] hover:bg-white/10 transition-all duration-300"
             style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
@@ -135,7 +144,7 @@ export default function Hero() {
       {/* Bottom strip */}
       <div ref={barRef} className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/[0.08] bg-black/55 backdrop-blur-md" style={{ opacity: 0, textShadow: "0 1px 12px rgba(0,0,0,0.85)" }}>
         <div className="max-w-[1400px] mx-auto px-8 lg:px-20 flex items-center divide-x divide-white/[0.06]">
-          {["Tourisme Privé · ~ 6 à 8h", "Aéroport Marseille-Provence", "Gare Saint-Charles", "Conventionné & agréé par l'État"].map((t, i) => (
+          {["Tourisme Privé · ~ 6 à 8h", "Aéroport Marseille-Provence", "Gare Saint-Charles", "Taxi sous licence officielle de l'État"].map((t, i) => (
             <div key={i} className="flex items-center gap-2 px-6 py-4 first:pl-0">
               <MapPin size={12} className="text-[#D4AF37] shrink-0" />
               <span className="text-[11px] tracking-wide font-light whitespace-nowrap" style={{ color: "#B8B8B8" }}>{t}</span>

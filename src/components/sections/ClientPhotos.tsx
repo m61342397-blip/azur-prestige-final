@@ -74,18 +74,8 @@ export default function ClientPhotos() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Bottom gradient for label legibility */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-
               {/* Hover border accent */}
               <div className="absolute inset-0 pointer-events-none border border-white/[0.06] group-hover:border-[#D4AF37]/30 transition-colors duration-500" />
-
-              {/* Caption — forced white (the global `color: inherit` rule would
-                  otherwise tint it to the dark theme colour on the dark band). */}
-              <span className="absolute bottom-3 left-4 right-4 text-[10px] tracking-[0.25em] uppercase font-light"
-                style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-                {slot.label}
-              </span>
             </div>
           ))}
         </div>

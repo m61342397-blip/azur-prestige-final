@@ -4,6 +4,34 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  // Scroll vers la section ciblée quand on arrive sur la home avec un #hash
+  // (ex. clic sur un lien du Footer depuis /mentions-legales → /#tourisme).
+  // Fonctionne avec Lenis (desktop) comme en scroll natif (mobile), et
+  // re-tente une fois pour absorber les décalages de mise en page tardifs.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash || hash === "#") return;
+
+    let cancelled = false;
+    const scrollToHash = () => {
+      if (cancelled) return;
+      let el: Element | null = null;
+      try { el = document.querySelector(hash); } catch { return; }
+      if (!el) return;
+      const lenis = (window as unknown as Record<string, { scrollTo: (t: Element, o: object) => void } | undefined>).__lenis;
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -80, duration: 1.2 });
+      } else {
+        const y = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    };
+
+    const t1 = setTimeout(scrollToHash, 250);
+    const t2 = setTimeout(scrollToHash, 800);
+    return () => { cancelled = true; clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
   useEffect(() => {
     // Mobile + reduced-motion: skip Lenis entirely. Native scrolling is
     // lighter and avoids per-frame JS work on every touch-scroll frame.

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 const links = [
   { label: "Services",   href: "#services"    },
@@ -95,11 +96,14 @@ export default function Navigation() {
 
           {/* CTA */}
           <div className="flex items-center gap-4">
-            <a href="tel:+33666323817"
-              className="hidden lg:flex items-center gap-2 border border-[#D4AF37]/40 px-5 py-2.5 text-[11px] font-light tracking-[0.18em] uppercase hover:bg-[#D4AF37]/15 hover:border-[#D4AF37] transition-all duration-300"
-              style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
-              <Phone size={12} /> Appeler
-            </a>
+            <ContactChoice
+              mode="call"
+              align="right"
+              wrapperClassName="hidden lg:block relative"
+              className="flex items-center gap-2 border border-[#D4AF37]/40 px-5 py-2.5 text-[11px] font-light tracking-[0.18em] uppercase hover:bg-[#D4AF37]/15 hover:border-[#D4AF37] transition-all duration-300"
+              style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
+              trigger={<><Phone size={12} /> Appeler</>}
+            />
             <a href="/reservation"
               className="hidden lg:flex items-center gap-2 bg-[#D4AF37] px-5 py-2.5 text-[11px] font-medium tracking-[0.18em] uppercase hover:bg-white transition-all duration-300"
               style={{ color: "#050505" }}>
@@ -128,16 +132,24 @@ export default function Navigation() {
           className="mt-8 block text-center bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.2em] uppercase hover:bg-white transition-colors">
           Réserver en ligne
         </a>
-        <a href="tel:+33666323817" className="mt-4 flex items-center gap-3 text-[#D4AF37]">
-          <Phone size={16} /> <span className="text-sm font-light tracking-[0.2em]">+33 6 66 32 38 17</span>
-        </a>
+        <ContactChoice
+          mode="call"
+          align="left"
+          wrapperClassName="mt-4 relative"
+          className="flex items-center gap-3 text-[#D4AF37]"
+          trigger={<><Phone size={16} /> <span className="text-sm font-light tracking-[0.2em]">Appeler un chauffeur</span></>}
+        />
       </div>
 
       {/* Fixed phone button mobile */}
-      <a href="tel:+33666323817"
-        className="fixed bottom-6 right-6 z-[80] lg:hidden w-12 h-12 bg-[#D4AF37] flex items-center justify-center shadow-lg hover:bg-white transition-colors duration-300">
-        <Phone size={18} className="text-[#050505]" />
-      </a>
+      <ContactChoice
+        mode="call"
+        align="right"
+        direction="up"
+        wrapperClassName="fixed bottom-6 right-6 z-[80] lg:hidden"
+        className="w-12 h-12 bg-[#D4AF37] flex items-center justify-center shadow-lg hover:bg-white transition-colors duration-300"
+        trigger={<Phone size={18} className="text-[#050505]" />}
+      />
     </>
   );
 }

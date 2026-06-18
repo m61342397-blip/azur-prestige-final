@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import GlobalAmbient from "@/components/layout/GlobalAmbient";
 import { engine, Engine } from "@/lib/engine";
 import AddressAutocomplete from "@/components/ui/AddressAutocomplete";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 const vehicules = [
   { id: "berline",  label: "Berline",   cap: "1–4 passagers", bag: "3 bagages"  },
@@ -99,7 +100,13 @@ export default function Reservation() {
           </div>
           <div className="flex gap-4 justify-center flex-wrap">
             <a href="/" className="border border-white/[0.08] text-[#A1A1AA] px-8 py-3.5 text-sm font-light tracking-[0.1em] uppercase hover:border-[#D4AF37]/40 hover:text-white transition-all duration-300">← Accueil</a>
-            <a href="tel:+33666323817" className="bg-[#D4AF37] text-[#050505] px-8 py-3.5 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300">Nous appeler</a>
+            <ContactChoice
+              mode="call"
+              align="center"
+              direction="up"
+              className="bg-[#D4AF37] text-[#050505] px-8 py-3.5 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
+              trigger={<>Nous appeler</>}
+            />
           </div>
         </div>
       </div>

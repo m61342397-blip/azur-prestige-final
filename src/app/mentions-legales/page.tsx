@@ -36,12 +36,12 @@ export default function MentionsLegales() {
             <p>Le présent site est édité par :</p>
             <Info>
               <Row label="Raison sociale" value="Azur Prestige Taxi Marseille" />
-              <Row label="Forme juridique" value="Auto-entrepreneur / [À compléter]" />
-              <Row label="SIRET" value="XXX XXX XXX XXXXX [À compléter]" />
-              <Row label="Numéro de carte professionnelle" value="[Numéro VTC/Taxi à compléter]" />
+              <Row label="Forme juridique" value="Auto-entrepreneur / Micro-entreprise" />
+              <Row label="SIRET" value="989 229 604 00016" />
+              <Row label="Numéro de carte professionnelle" value="01325515101" />
               <Row label="Adresse" value="Marseille, Bouches-du-Rhône (13), France" />
-              <Row label="Téléphone" value="+33 6 00 00 00 00 [À compléter]" />
-              <Row label="Email" value="contact@azurprestige.fr [À compléter]" />
+              <Row label="Téléphone" value="+33 6 66 32 38 17" />
+              <Row label="Email" value="contact@azurprestige.fr" />
             </Info>
           </Section>
 

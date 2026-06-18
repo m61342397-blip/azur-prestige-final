@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowRight, Clock, MessageCircle } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 const circuits = [
   {
@@ -341,15 +342,20 @@ export default function Tourism() {
               </p>
             </div>
 
-            {/* Bouton WhatsApp */}
-            <a href={`https://wa.me/33666323817?text=${encodeURIComponent(d.whatsapp)}`}
-              target="_blank" rel="noopener noreferrer"
+            {/* Bouton WhatsApp — choix entre les deux chauffeurs au clic */}
+            <ContactChoice
+              mode="whatsapp"
+              align="left"
+              waText={d.whatsapp}
+              wrapperClassName="relative inline-block"
               className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase transition-all duration-500"
-              style={{ background: d.accent, color: "#ffffff" }}>
-              <MessageCircle size={14} />
-              Demander ce circuit sur WhatsApp
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
+              style={{ background: d.accent, color: "#ffffff" }}
+              trigger={<>
+                <MessageCircle size={14} />
+                Demander ce circuit sur WhatsApp
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </>}
+            />
           </div>
         </div>
       </div>

@@ -23,9 +23,9 @@ function VehicleSilhouette({ type, capacity }: { type: string; capacity: string 
 const vehicles = [
   { type: "Berline",   capacity: "4 places", luggage: "3 bagages",  comfort: "Première Classe", variant: "berline" as const,
     desc: "Idéale pour couples et petits groupes. Confort premium pour vos circuits touristiques et transferts." },
-  { type: "Van",       capacity: "6 places", luggage: "6 bagages",  comfort: "Confort +",       variant: "van" as const,
+  { type: "Monospace",       capacity: "6 places", luggage: "6 bagages",  comfort: "Confort +",       variant: "monospace" as const,
     desc: "Espace généreux pour familles et groupes. Parfait pour les journées tourisme accompagné en Provence." },
-  { type: "Grand Van", capacity: "8 places", luggage: "10 bagages", comfort: "Prestige",        variant: "grandvan" as const,
+  { type: "Van", capacity: "8 places", luggage: "10 bagages", comfort: "Prestige",        variant: "van" as const,
     desc: "Capacité maximale pour grands groupes. Idéal pour circuits en délégation ou sorties entre amis." },
 ];
 

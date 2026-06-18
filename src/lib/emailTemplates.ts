@@ -37,7 +37,7 @@ function wrapper(content: string): string {
           <tr>
             <td style="padding:32px 0 0 0;border-top:1px solid ${BASE.border};text-align:center;">
               <p style="margin:0 0 6px 0;color:${BASE.grayDark};font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-weight:300;">Azur Prestige Taxi Marseille</p>
-              <p style="margin:0 0 4px 0;color:${BASE.grayDark};font-size:11px;font-weight:300;">+33 6 66 32 38 17 &nbsp;·&nbsp; contact@azurprestige.eu</p>
+              <p style="margin:0 0 4px 0;color:${BASE.grayDark};font-size:11px;font-weight:300;">+33 6 66 32 38 17 &nbsp;·&nbsp; +33 6 22 84 52 40 &nbsp;·&nbsp; contact@azurprestige.eu</p>
               <p style="margin:0;color:#3A3A3A;font-size:10px;font-weight:300;">Service disponible 24h/7j &nbsp;·&nbsp; Marseille &amp; région PACA</p>
             </td>
           </tr>

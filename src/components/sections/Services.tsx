@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Plane, Train, Briefcase, Camera, Star, Navigation, HeartPulse } from "lucide-react";
+import { Plane, Train, Briefcase, Camera, Star, Navigation, HeartPulse, ShieldCheck } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 
 const services = [
@@ -63,6 +63,13 @@ export default function Services() {
           <h2 className="font-light leading-tight text-white" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,5.5vw,5.5rem)" }}>
             Découvrir Marseille,<br /><span className="text-[#A1A1AA]">accompagné de A à Z.</span>
           </h2>
+          <div className="mt-8 inline-flex items-start gap-3 border border-[#D4AF37]/30 px-4 py-3 bg-[#D4AF37]/[0.04]">
+            <ShieldCheck size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+            <p className="text-[#A1A1AA] text-sm font-light leading-relaxed">
+              <span className="text-white">Taxi sous licence officielle de l'État</span> — un véritable taxi agréé,
+              et non un VTC se présentant à tort comme « agréé ».
+            </p>
+          </div>
         </div>
 
         <div className="mb-10 h-px overflow-hidden bg-white/[0.04]">

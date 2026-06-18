@@ -3,12 +3,13 @@
 import { useRef, useEffect } from "react";
 import { Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 const channels = [
-  { icon: Phone,         label: "Téléphone",  value: "+33 6 66 32 38 17",        sub: "Réponse immédiate" },
-  { icon: MessageCircle, label: "WhatsApp",   value: "+33 6 66 32 38 17",        sub: "7j/7, réponse rapide" },
-  { icon: Mail,          label: "Email",      value: "contact@azurprestige.fr",  sub: "Réponse sous 2h" },
-  { icon: Clock,         label: "Horaires",   value: "24h / 7j",                 sub: "365 jours par an" },
+  { icon: Phone,         label: "Téléphone",  values: ["+33 6 66 32 38 17", "+33 6 22 84 52 40"], sub: "2 chauffeurs · réponse immédiate" },
+  { icon: MessageCircle, label: "WhatsApp",   values: ["+33 6 66 32 38 17", "+33 6 22 84 52 40"], sub: "7j/7, réponse rapide" },
+  { icon: Mail,          label: "Email",      values: ["contact@azurprestige.fr"],                sub: "Réponse sous 2h" },
+  { icon: Clock,         label: "Horaires",   values: ["24h / 7j"],                               sub: "365 jours par an" },
 ];
 
 export default function Contact() {
@@ -66,7 +67,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-[10px] tracking-[0.25em] uppercase font-light mb-1" style={{ color: "var(--text-secondary)" }}>{ch.label}</div>
-                    <div className="text-sm font-light" style={{ color: "var(--text-primary)" }}>{ch.value}</div>
+                    {ch.values.map((v) => (
+                      <div key={v} className="text-sm font-light" style={{ color: "var(--text-primary)" }}>{v}</div>
+                    ))}
                     <div className="text-[11px] font-light mt-1" style={{ color: "var(--text-secondary)" }}>{ch.sub}</div>
                   </div>
                 </div>
@@ -91,10 +94,13 @@ export default function Contact() {
               <input className={input} placeholder="Email" type="email" />
               <input className={input} placeholder="Trajet ou demande" />
               <textarea className={input + " resize-none"} rows={4} placeholder="Message ou informations complémentaires" />
-              <a href="tel:+33666323817"
-                className="flex items-center justify-center gap-3 w-full bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300">
-                Envoyer la demande
-              </a>
+              <ContactChoice
+                mode="call"
+                align="center"
+                wrapperClassName="relative w-full"
+                className="flex items-center justify-center gap-3 w-full bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
+                trigger={<>Appeler un chauffeur</>}
+              />
             </div>
           </div>
         </div>

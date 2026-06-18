@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { MapPin, ArrowRight, Phone } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 const popularRoutes = [
   { from: "Aéroport MP",        to: "Centre Marseille",  time: "~ 35 min" },
@@ -81,14 +82,19 @@ export default function Calculator() {
             </div>
 
             <div className="flex gap-3">
-              <a href="tel:+33666323817"
-                className="flex-1 flex items-center justify-center gap-2 bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300">
-                <Phone size={14} /> Obtenir un devis
-              </a>
-              <a href="https://wa.me/33666323817" target="_blank" rel="noopener noreferrer"
-                className="border border-white/[0.08] text-[#8A8A8A] px-6 py-4 text-sm font-light hover:border-[#D4AF37]/40 hover:text-[#D4AF37] transition-all duration-300">
-                WhatsApp
-              </a>
+              <ContactChoice
+                mode="call"
+                align="left"
+                wrapperClassName="relative flex-1"
+                className="w-full flex items-center justify-center gap-2 bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
+                trigger={<><Phone size={14} /> Obtenir un devis</>}
+              />
+              <ContactChoice
+                mode="whatsapp"
+                align="right"
+                className="border border-white/[0.08] text-[#8A8A8A] px-6 py-4 text-sm font-light hover:border-[#D4AF37]/40 hover:text-[#D4AF37] transition-all duration-300"
+                trigger={<>WhatsApp</>}
+              />
             </div>
           </div>
 

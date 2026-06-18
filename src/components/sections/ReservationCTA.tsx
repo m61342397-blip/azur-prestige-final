@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
+import ContactChoice from "@/components/ui/ContactChoice";
 
 export default function ReservationCTA() {
   const secRef   = useRef<HTMLDivElement>(null);
@@ -68,16 +69,20 @@ export default function ReservationCTA() {
             Réserver en ligne
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
-          <a href="tel:+33666323817"
+          <ContactChoice
+            mode="call"
+            align="center"
             className="flex items-center gap-3 px-10 py-5 text-sm font-light tracking-[0.12em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
-            style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}>
-            <Phone size={14} /> +33 6 66 32 38 17
-          </a>
-          <a href="https://wa.me/33666323817" target="_blank" rel="noopener noreferrer"
+            style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}
+            trigger={<><Phone size={14} /> Appeler</>}
+          />
+          <ContactChoice
+            mode="whatsapp"
+            align="center"
             className="px-10 py-5 text-sm font-light tracking-[0.12em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
-            style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}>
-            WhatsApp
-          </a>
+            style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}
+            trigger={<>WhatsApp</>}
+          />
         </div>
 
         <div ref={tagsRef} className="flex items-center justify-center gap-6 flex-wrap" style={{ opacity: 1 }}>
