@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
 import { engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
@@ -15,6 +16,14 @@ const links = [
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Hors page d'accueil, les ancres (#section) sont préfixées en /#section pour
+  // revenir sur la home puis scroller vers la bonne section (scroll géré par
+  // SmoothScroll). Sur la home, on garde l'ancre directe. Identique à Footer.tsx.
+  const resolve = (href: string) =>
+    href.startsWith("#") && pathname !== "/" ? `/${href}` : href;
+
   const navRef  = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLSpanElement>(null);
   const dotRef  = useRef<HTMLDivElement>(null);
@@ -86,7 +95,7 @@ export default function Navigation() {
           {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map((l) => (
-              <a key={l.href} href={l.href}
+              <a key={l.href} href={resolve(l.href)}
                 className="text-[11px] font-light uppercase tracking-[0.2em] transition-colors duration-300 hover:opacity-70"
                 style={{ color: "var(--nav-link-color, #A1A1AA)" }}>
                 {l.label}
@@ -121,7 +130,7 @@ export default function Navigation() {
       <div className={`fixed inset-0 z-[85] bg-transparent backdrop-blur-sm flex flex-col justify-center px-8 transition-all duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
         <div className="space-y-6">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
+            <a key={l.href} href={resolve(l.href)} onClick={() => setMenuOpen(false)}
               className="block text-[#A1A1AA] text-3xl font-light hover:text-white transition-colors duration-300"
               style={{ fontFamily: "var(--font-serif)" }}>
               {l.label}
