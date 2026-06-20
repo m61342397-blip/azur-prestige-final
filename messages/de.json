@@ -1,0 +1,565 @@
+{
+  "Meta": {
+    "title": "Premium-Taxi Marseille | Flughafentransfer & Privatchauffeur",
+    "homeTitle": "Azur Prestige | Premium-Taxi & geführte Touren in Marseille",
+    "description": "Premium-Taxiservice in Marseille. Flughafentransfers, Geschäftsreisen, geführte Touren durch die Provence. Rund um die Uhr verfügbar.",
+    "keywords": "taxi marseille, flughafentransfer marseille, privatchauffeur marseille, taxi tour marseille",
+    "ogTitle": "Premium-Taxi Marseille | Azur Prestige",
+    "ogDescription": "Premium-Transport, gemacht für Marseille."
+  },
+  "Nav": {
+    "services": "Leistungen",
+    "fleet": "Flotte",
+    "tourism": "Touren",
+    "quote": "Angebot",
+    "contact": "Kontakt",
+    "call": "Anrufen",
+    "callDriver": "Einen Fahrer anrufen",
+    "book": "Buchen",
+    "bookOnline": "Online buchen",
+    "language": "Sprache"
+  },
+  "ContactMenu": {
+    "chooseDriver": "Fahrer auswählen",
+    "whatsappChooseDriver": "WhatsApp — Fahrer auswählen",
+    "driver": "Fahrer {number}"
+  },
+  "Hero": {
+    "eyebrow": "Geführte Touren · Marseille",
+    "badge": "Staatlich lizenziertes Taxi",
+    "title1": "Marseille.",
+    "title2": "Ohne Wartezeit.",
+    "subtitle": "Ihr Chauffeur bleibt den ganzen Tag an Ihrer Seite.\nMarseille, Provence, die Calanques — ein vollständiges Erlebnis,\nvon Anfang bis Ende, in Ihrem Tempo.",
+    "ctaBook": "Jetzt buchen",
+    "ctaDiscover": "Entdecken",
+    "bar": [
+      "Private Touren · ~ 6 bis 8 Std.",
+      "Flughafen Marseille-Provence",
+      "Bahnhof Saint-Charles",
+      "Offiziell staatlich lizenziertes Taxi"
+    ]
+  },
+  "Ticker": {
+    "items": [
+      "Flughafentransfer",
+      "Privatchauffeur",
+      "Private Touren",
+      "Bahnhof Saint-Charles",
+      "VIP-Events",
+      "Lange Strecken",
+      "Rund um die Uhr verfügbar",
+      "Preis auf Anfrage",
+      "Kartenzahlung"
+    ]
+  },
+  "Stats": {
+    "items": [
+      { "suffix": " Std./7", "label": "Verfügbarkeit", "desc": "Immer für Sie da" },
+      { "suffix": " Jahre", "label": "Erfahrung", "desc": "Ein junges, dynamisches Team" },
+      { "suffix": "+", "label": "Betreute Kunden", "desc": "Privat- und Geschäftskunden" },
+      { "suffix": "/5", "label": "Durchschnittsnote", "desc": "847 verifizierte Bewertungen" }
+    ]
+  },
+  "Services": {
+    "eyebrow": "Leistungen",
+    "titleLine1": "Marseille entdecken,",
+    "titleLine2": "begleitet von Anfang bis Ende.",
+    "licenceStrong": "Offiziell staatlich lizenziertes Taxi",
+    "licenceText": " — ein echtes lizenziertes Taxi, kein Mietwagendienst, der sich fälschlicherweise als „lizenziert“ ausgibt.",
+    "items": [
+      { "subtitle": "Marseille · Provence", "desc": "Ihr Chauffeur bleibt den ganzen Tag an Ihrer Seite (~ 6 bis 8 Std.). Besichtigungen, Pausen, Ausflüge zu den Calanques — eine vollständige, maßgeschneiderte Begleitung.", "tag": "Unsere Spezialität" },
+      { "subtitle": "MP · LYS · NCE", "desc": "Abholung direkt nach der Landung. Persönlicher Empfang mit Namensschild.", "tag": "Empfang" },
+      { "subtitle": "Saint-Charles · TGV", "desc": "Empfang am Bahnsteig, Gepäckhilfe. Anschlüsse an TGV, Intercités und Eurostar. Pünktlichkeit garantiert.", "tag": "Empfang" },
+      { "subtitle": "Krankenhäuser · Kliniken · Termine", "desc": "Krankenfahrten zu Krankenhäusern, Kliniken und Terminen. Aufmerksamer Fahrer, geeignetes Fahrzeug, absolute Diskretion.", "tag": "" },
+      { "subtitle": "Business Class", "desc": "Firmenvertrag, monatliche Abrechnung, vollständige Vertraulichkeit. Persönlicher Fahrer auf Anfrage.", "tag": "" },
+      { "subtitle": "Hochzeiten · Galas · Abende", "desc": "VIP-Fahrzeug zur Verfügung für Hochzeiten, Galas und Abendveranstaltungen. Gepflegte Flotte, absolute Pünktlichkeit. Preise auf Anfrage je nach Dauer und Fahrzeug.", "tag": "" },
+      { "subtitle": "Frankreich & Europa", "desc": "Paris, Monaco, Nizza, Lyon. Optimaler Komfort auf langen Strecken. Preis auf Anfrage.", "tag": "" }
+    ]
+  },
+  "ScrollStory": {
+    "words": [
+      { "w": "PREMIUM", "sub": "Eine gepflegte Flotte, geschulte Chauffeure." },
+      { "w": "PÜNKTLICH", "sub": "Echtzeit-Tracking. Keine Verspätungen." },
+      { "w": "DISKRET", "sub": "Vertraulichkeit über alles." },
+      { "w": "MARSEILLE", "sub": "Die Stadt als Spielwiese." }
+    ]
+  },
+  "Vehicles": {
+    "eyebrow": "Flotte",
+    "titleLine1": "Ihr Fahrzeug,",
+    "titleLine2": "Ihr Komfort.",
+    "cta": "Angebot anfordern",
+    "items": [
+      { "type": "Limousine", "capacity": "4 Plätze", "luggage": "3 Gepäckstücke", "comfort": "Erste Klasse", "desc": "Ideal für Paare und kleine Gruppen. Premium-Komfort für Ihre Touren und Transfers." },
+      { "type": "Van", "capacity": "6 Plätze", "luggage": "6 Gepäckstücke", "comfort": "Komfort +", "desc": "Großzügiger Platz für Familien und Gruppen. Perfekt für geführte Tourentage durch die Provence." },
+      { "type": "Großraum-Van", "capacity": "8 Plätze", "luggage": "10 Gepäckstücke", "comfort": "Prestige", "desc": "Maximale Kapazität für große Gruppen. Ideal für Gruppentouren oder Ausflüge mit Freunden." }
+    ]
+  },
+  "Calculator": {
+    "eyebrow": "Schätzen Sie Ihre Fahrt",
+    "titleLine1": "Ihre Fahrt,",
+    "titleLine2": "auf Anfrage.",
+    "intro": "Beschreiben Sie Ihr Vorhaben — eine Tour, einen Transfer oder ein Fahrzeug zur Verfügung. Wir antworten mit einem persönlichen Angebot, unverbindlich.",
+    "departPlaceholder": "Abfahrt — Adresse oder Ort",
+    "destinationPlaceholder": "Ziel",
+    "vehicleBerline": "Limousine — 1 bis 4 Passagiere",
+    "vehicleVan": "Van — 1 bis 6 Passagiere",
+    "vehicleGrandVan": "Großraum-Van — 1 bis 8 Passagiere",
+    "getQuote": "Angebot anfordern",
+    "whatsapp": "WhatsApp",
+    "popularRoutes": "Beliebte Strecken",
+    "priceOnQuote": "Preis auf Anfrage"
+  },
+  "Tourism": {
+    "eyebrow": "Geführte Touren",
+    "titleLine1": "Marseille & die Provence,",
+    "titleLine2": "Ihr Chauffeur bleibt bei Ihnen.",
+    "intro": "Kein einfacher Transfer — eine vollständige Begleitung über ~ 6 bis 8 Std. Ihr Chauffeur führt Sie, wartet während Ihrer Besichtigungen, bringt Sie zum Mittagessen und bleibt von morgens bis abends an Ihrer Seite.",
+    "programLabel": "Auf dem Programm",
+    "tarifLabel": "Preis",
+    "tarifText": "Preis auf Anfrage — kontaktieren Sie uns direkt über WhatsApp.",
+    "tarifNote": "Mindestpreis für 4 Personen · darüber hinaus Zuschlag pro Person · Zahlung an Bord.",
+    "cta": "Diese Tour über WhatsApp anfragen",
+    "circuits": [
+      {
+        "name": "Tour Marseille Essentiell",
+        "subtitle": "6 Sehenswürdigkeiten · ~ 2–2,5 Std.",
+        "desc": "Entdecken Sie das historische Herz von Marseille. Vom Palais du Pharo mit seinem atemberaubenden Blick über die Reede bis zum lebhaften Vieux-Port, vorbei an Notre-Dame de la Garde und der Cathédrale de la Major.",
+        "monuments": [
+          "Palais du Pharo — Panoramablick über die Reede",
+          "Monument aux Morts — Blick auf die Frioul-Inseln & Château d'If (Der Graf von Monte Christo)",
+          "Notre-Dame de la Garde",
+          "Cathédrale de la Major",
+          "Viertel Le Panier",
+          "Vieux-Port"
+        ],
+        "duration": "~ 2–2,5 Std.",
+        "whatsapp": "Guten Tag, ich möchte die Tour Marseille Essentiell (6 Sehenswürdigkeiten) buchen."
+      },
+      {
+        "name": "Tour Marseille Komplett",
+        "subtitle": "8 Sehenswürdigkeiten · ~ 3–3,5 Std.",
+        "desc": "Die Essentiell-Tour, erweitert um zwei weitere Juwelen: die Abbaye Saint-Victor, eine der ältesten Kirchen Frankreichs, und den majestätischen Palais Longchamp.",
+        "monuments": [
+          "Palais du Pharo",
+          "Monument aux Morts — Blick auf die Frioul-Inseln & Château d'If (Der Graf von Monte Christo)",
+          "Notre-Dame de la Garde",
+          "Cathédrale de la Major",
+          "Viertel Le Panier",
+          "Vieux-Port",
+          "Abbaye Saint-Victor",
+          "Palais Longchamp"
+        ],
+        "duration": "~ 3–3,5 Std.",
+        "whatsapp": "Guten Tag, ich möchte die Tour Marseille Komplett (8 Sehenswürdigkeiten) buchen."
+      },
+      {
+        "name": "Tour Cassis",
+        "subtitle": "Hafen & Steilküste · ~ 4–5 Std.",
+        "desc": "Auf nach Cassis. Entdecken Sie den malerischen Hafen von Cassis und den Blick auf Cap Canaille — die höchste Meeresklippe Europas, die bis auf ~ 400 Meter aufragt.",
+        "monuments": [
+          "Hafen von Cassis",
+          "Cap Canaille — ~ 400 m, höchste Meeresklippe Europas",
+          "Calanques vom Hafen aus"
+        ],
+        "duration": "~ 4–5 Std.",
+        "whatsapp": "Guten Tag, ich möchte die Tour Cassis (4–5 Std.) buchen."
+      },
+      {
+        "name": "Tour Cassis + Aix",
+        "subtitle": "Ganzer Tag · ~ 6–7 Std.",
+        "desc": "Der ideale Tag: Aix-en-Provence am Morgen mit seinen provenzalischen Märkten und Brunnen, dann Cassis am Nachmittag mit seinem Hafen und dem schwindelerregenden Blick auf Cap Canaille (~ 400 m). Mittagspause inklusive.",
+        "monuments": [
+          "Cours Mirabeau — Aix-en-Provence",
+          "Provenzalische Märkte und Brunnen",
+          "Hafen von Cassis",
+          "Cap Canaille — Klippe ~ 400 m"
+        ],
+        "duration": "~ 6–7 Std. · Mittagspause inklusive",
+        "whatsapp": "Guten Tag, ich möchte die Tour Cassis + Aix (ganzer Tag) buchen."
+      },
+      {
+        "name": "Tour Valensole",
+        "subtitle": "Lavendelfelder · ~ 6 Std.",
+        "desc": "Entfliehen Sie ins Herz der authentischen Provence. Die endlosen Lavendelfelder von Valensole bieten ein unvergessliches Schauspiel. ~ 4 Std. vor Ort zum Spazieren, Fotografieren und Genießen der Provence.",
+        "monuments": [
+          "Hochebene von Valensole",
+          "Endlose Lavendelfelder",
+          "Provenzalische Dörfer",
+          "Außergewöhnliche Panoramen"
+        ],
+        "duration": "~ 6 Std. gesamt · ~ 4 Std. vor Ort",
+        "whatsapp": "Guten Tag, ich möchte die Tour Valensole (Lavendelfelder) buchen."
+      }
+    ]
+  },
+  "Process": {
+    "eyebrow": "So funktioniert's",
+    "titleLine1": "Einfach,",
+    "titleLine2": "schnell, zuverlässig.",
+    "steps": ["Buchung", "Bestätigung", "Abholung", "Ankunft"]
+  },
+  "Testimonials": {
+    "eyebrow": "Kundenbewertungen",
+    "titleLine1": "Sie vertrauen",
+    "titleLine2": "auf uns.",
+    "emptyText": "Noch keine Bewertungen.\nSeien Sie der Erste, der seine Erfahrung teilt.",
+    "leaveReview": "Bewertung abgeben",
+    "verifiedClient": "Verifizierter Kunde"
+  },
+  "ClientPhotos": {
+    "eyebrow": "Kundenfotos",
+    "titleLine1": "Sie haben",
+    "titleLine2": "es erlebt.",
+    "intro": "Fotos folgen in Kürze — unsere Kunden teilen ihre Erinnerungen an die Provence."
+  },
+  "ReservationCTA": {
+    "titleLine1": "Bereit loszufahren?",
+    "titleLine2": "Jetzt buchen.",
+    "bookOnline": "Online buchen",
+    "call": "Anrufen",
+    "whatsapp": "WhatsApp",
+    "tags": ["Sofortige Bestätigung", "Garantierter Festpreis", "Professioneller Chauffeur", "Rund um die Uhr"]
+  },
+  "Contact": {
+    "eyebrow": "Kontakt",
+    "titleLine1": "Sprechen wir über",
+    "titleLine2": "Ihre Fahrt.",
+    "labelPhone": "Telefon",
+    "labelWhatsapp": "WhatsApp",
+    "labelEmail": "E-Mail",
+    "labelHours": "Zeiten",
+    "subPhone": "2 Fahrer · sofortige Antwort",
+    "subWhatsapp": "7 Tage die Woche, schnelle Antwort",
+    "subEmail": "Antwort innerhalb von 2 Std.",
+    "subHours": "365 Tage im Jahr",
+    "hoursValue": "Rund um die Uhr",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "trip": "Strecke oder Anfrage",
+    "message": "Nachricht oder zusätzliche Informationen",
+    "send": "Einen Fahrer anrufen"
+  },
+  "Footer": {
+    "tagline": "Geführte Touren in Marseille und der Provence. Flughafen- und Bahnhofstransfers, maßgeschneiderte Touren. Rund um die Uhr verfügbar, 365 Tage im Jahr.",
+    "licence": "Offiziell staatlich lizenziertes Taxi",
+    "servicesTitle": "Leistungen",
+    "infoTitle": "Informationen",
+    "services": ["Geführte Touren", "Flughafentransfer", "Bahnhofsabholung", "Krankentransport", "Events", "Lange Strecken"],
+    "info": ["FAQ", "Unsere Fahrzeuge", "Angebot", "Bewertung abgeben", "Kontakt"],
+    "legal": ["Impressum", "Datenschutz", "AGB"],
+    "copyright": "Azur Prestige Taxi Marseille · SIRET 989 229 604 00016"
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "titleLine1": "Häufige",
+    "titleLine2": "Fragen.",
+    "items": [
+      { "q": "Wie buche ich ein Taxi in Marseille?", "a": "Per Telefon, WhatsApp oder Online-Formular. Sofortige Bestätigung per SMS mit Name und Nummer des Fahrers." },
+      { "q": "Was sind Ihre Preise für den Flughafen?", "a": "Festpreis ab dem Flughafen Marseille-Provence: 65 € ins Stadtzentrum." },
+      { "q": "Sind Sie nachts und am Wochenende verfügbar?", "a": "Ja, rund um die Uhr und 365 Tage im Jahr. Unsere Preise ändern sich nicht je nach Uhrzeit oder Tag." },
+      { "q": "Bieten Sie Firmenverträge an?", "a": "Ja — monatliche Abrechnung, persönlicher Fahrer auf Anfrage, Fahrtenberichte. Kontaktieren Sie uns für ein Angebot." },
+      { "q": "Kann ich für eine Gruppe buchen?", "a": "Ja, unser Van (6 Passagiere) und Großraum-Van (8 Passagiere) stehen für Gruppen zur Verfügung, mit viel Platz für Gepäck." }
+    ]
+  },
+  "CGV": {
+    "metaTitle": "Allgemeine Geschäftsbedingungen | Azur Prestige Taxi Marseille",
+    "metaDescription": "Allgemeine Geschäftsbedingungen des Premium-Taxiservices Azur Prestige in Marseille.",
+    "eyebrow": "Rechtliches",
+    "title": "Allgemeine\nGeschäftsbedingungen",
+    "lastUpdate": "Letzte Aktualisierung: Juni 2025",
+    "privacyLabel": "Datenschutzerklärung",
+    "sections": [
+      { "title": "1. Gegenstand", "blocks": [
+        "Die vorliegenden Allgemeinen Geschäftsbedingungen (AGB) regeln sämtliche Personenbeförderungsleistungen, die von Azur Prestige Taxi Marseille (nachfolgend „der Anbieter“) für Privat- oder Geschäftskunden (nachfolgend „der Kunde“) erbracht werden.",
+        "Jede Buchung beinhaltet die vollständige und uneingeschränkte Annahme dieser AGB."
+      ]},
+      { "title": "2. Angebotene Leistungen", "blocks": [
+        "Der Anbieter bietet folgende Leistungen an:",
+        { "type": "ul", "items": [
+          "Flughafen- / Bahnhofstransfers (Marseille-Provence, Bahnhof Saint-Charles und andere)",
+          "Einmalige oder vertraglich geregelte Geschäftsreisen",
+          "Touristische Touren in der Region PACA (Calanques, Cassis, Aix-en-Provence usw.)",
+          "Fahrzeug mit Chauffeur zur Verfügung (Events, Hochzeiten, Abende)",
+          "Langstreckentransfers (Frankreich und Europa)"
+        ]}
+      ]},
+      { "title": "3. Buchung", "blocks": [
+        "Die Buchung kann per Telefon, WhatsApp oder über das Online-Formular erfolgen. Sie wird durch eine SMS oder eine zusammenfassende E-Mail bestätigt, in der Datum, Uhrzeit, Abholort, Ziel und vereinbarter Preis angegeben sind.",
+        "Die Buchung ist mit der schriftlichen Bestätigung (SMS oder E-Mail) durch den Anbieter verbindlich."
+      ]},
+      { "title": "4. Preise", "blocks": [
+        "Die Preise werden im Voraus festgelegt und dem Kunden vor jeder Buchung mitgeteilt. Die Preise verstehen sich in Euro inklusive aller Steuern.",
+        "Preisgrundsätze:",
+        { "type": "ul", "items": [
+          "Festpreise: kein Taxameter, keine Überraschungen am Ende der Fahrt",
+          "Kein nicht angekündigter Nacht-, Wochenend- oder Feiertagszuschlag",
+          "Zuschlag für sperriges Gepäck oder Tiere auf vorherige Anfrage",
+          "Maut und Parkgebühren inbegriffen, sofern nicht anders angegeben"
+        ]}
+      ]},
+      { "title": "5. Zahlung", "blocks": [
+        "Die Zahlung kann erfolgen:",
+        { "type": "ul", "items": [
+          "In bar, am Ende der Fahrt",
+          "Mit Bankkarte (EC-Karte, Visa, Mastercard)",
+          "Per Banküberweisung für Vertragskunden (monatliche Abrechnung)"
+        ]},
+        "Für Langstreckenfahrten oder langfristige Fahrzeugbereitstellungen kann eine Anzahlung verlangt werden."
+      ]},
+      { "title": "6. Stornierung und Änderung", "blocks": [
+        { "type": "rows", "rows": [
+          { "label": "Stornierung > 24 Std. vorher", "value": "Kostenlos, keine Gebühr" },
+          { "label": "Stornierung zwischen 12 und 24 Std.", "value": "30 % des Fahrpreises" },
+          { "label": "Stornierung zwischen 2 und 12 Std.", "value": "50 % des Fahrpreises" },
+          { "label": "Stornierung < 2 Std. oder No-Show", "value": "100 % des Fahrpreises" },
+          { "label": "Terminänderung", "value": "Kostenlos je nach Verfügbarkeit" }
+        ]},
+        "Bei außergewöhnlichen Umständen (höhere Gewalt, Unfall, medizinisches Problem) werden die Stornierungsbedingungen im Einzelfall geprüft."
+      ]},
+      { "title": "7. Pflichten des Anbieters", "blocks": [
+        { "type": "ul", "items": [
+          "Pünktlich am vereinbarten Ort anwesend sein",
+          "Umsichtig und unter Beachtung der Straßenverkehrsordnung fahren",
+          "Die Fahrzeuge in einwandfreiem Sauberkeits- und Funktionszustand halten",
+          "Die Vertraulichkeit der Fahrten des Kunden gewährleisten",
+          "Die geltenden Lizenzen, Versicherungen und behördlichen Genehmigungen besitzen"
+        ]}
+      ]},
+      { "title": "8. Pflichten des Kunden", "blocks": [
+        { "type": "ul", "items": [
+          "Pünktlich am vereinbarten Ort anwesend sein (15 Minuten Toleranz, danach kann die Fahrt als No-Show gewertet werden)",
+          "Die Abhol- und Zieladressen genau angeben",
+          "Nicht in den Fahrzeugen rauchen",
+          "Das Fahrzeug und den Chauffeur respektieren",
+          "Besondere Bedürfnisse (Kindersitz, Rollstuhl usw.) bei der Buchung angeben"
+        ]}
+      ]},
+      { "title": "9. Haftung", "blocks": [
+        "Der Anbieter ist durch eine Berufshaftpflichtversicherung abgedeckt. Seine Haftung beschränkt sich auf Personen- und Sachschäden, die unmittelbar durch ein nachgewiesenes Verschulden des Anbieters verursacht wurden.",
+        "Der Anbieter haftet nicht für Verspätungen, die durch unvorhersehbare Verkehrsbedingungen, Baustellen, Unfälle oder jedes andere Ereignis höherer Gewalt verursacht werden. Bei drohender erheblicher Verspätung wird der Kunde so bald wie möglich informiert."
+      ]},
+      { "title": "10. Streitigkeiten und anwendbares Recht", "blocks": [
+        "Im Streitfall wird vorrangig eine gütliche Lösung angestrebt. Kommt keine Einigung zustande, kann sich der Kunde gemäß den Artikeln L.611-1 ff. des französischen Verbrauchergesetzbuchs an eine Verbraucherschlichtungsstelle wenden.",
+        "Diese AGB unterliegen französischem Recht. Mangels gütlicher Einigung ist das Gericht von Marseille zuständig."
+      ]}
+    ]
+  },
+  "Confidentialite": {
+    "metaTitle": "Datenschutzerklärung | Azur Prestige Taxi Marseille",
+    "metaDescription": "Datenschutzerklärung und Schutz personenbezogener Daten — Azur Prestige Taxi Marseille.",
+    "eyebrow": "Rechtliches",
+    "title": "Datenschutz-\nerklärung",
+    "lastUpdate": "Letzte Aktualisierung: Juni 2025",
+    "privacyLabel": "Datenschutzerklärung",
+    "sections": [
+      { "title": "1. Verantwortlicher", "blocks": [
+        "Verantwortlicher für die Verarbeitung der über diese Website erhobenen personenbezogenen Daten ist: Azur Prestige Taxi Marseille — contact@azurprestige.fr"
+      ]},
+      { "title": "2. Erhobene Daten", "blocks": [
+        "Wir erheben die folgenden Daten nur, wenn Sie sie uns freiwillig übermitteln:",
+        { "type": "ul", "items": [
+          "Vor- und Nachname (Kontakt- / Buchungsformular)",
+          "Telefonnummer",
+          "E-Mail-Adresse",
+          "Abhol- und Zieladresse",
+          "Gewünschtes Datum und Uhrzeit"
+        ]},
+        "Wir erheben über diese Website keine sensiblen Daten (Bank-, Gesundheitsdaten usw.). Zahlungen werden während der Fahrt sicher abgewickelt."
+      ]},
+      { "title": "3. Zweck und Rechtsgrundlage", "blocks": [
+        "Ihre Daten werden ausschließlich verwendet, um:",
+        { "type": "ul", "items": [
+          "Ihre Angebots- oder Buchungsanfragen zu beantworten (Vertragserfüllung)",
+          "Ihnen eine Fahrtbestätigung per SMS zu senden (berechtigtes Interesse)",
+          "Unseren Service zu verbessern (berechtigtes Interesse)"
+        ]},
+        "Wir verwenden Ihre Daten niemals zu Werbezwecken und verkaufen sie auf keinen Fall an Dritte weiter."
+      ]},
+      { "title": "4. Speicherdauer", "blocks": [
+        "Ihre Daten werden so lange gespeichert, wie es für die Erbringung der Leistung erforderlich ist, und anschließend gemäß den französischen Steuervorschriften 3 Jahre lang zur Kundenbetreuung archiviert. Danach werden sie endgültig gelöscht."
+      ]},
+      { "title": "5. Weitergabe der Daten", "blocks": [
+        "Ihre Daten werden niemals verkauft, vermietet oder zu kommerziellen Zwecken an Dritte weitergegeben. Sie können ausschließlich an unsere technischen Auftragsverarbeiter (Hoster Vercel, SMS-Versanddienst) im strengen Rahmen der Leistungserbringung übermittelt werden, die denselben Vertraulichkeitspflichten unterliegen."
+      ]},
+      { "title": "6. Cookies", "blocks": [
+        "Diese Website verwendet keine Werbe- oder Analyse-Tracking-Cookies. Es können nur technische Cookies gesetzt werden, die für den Betrieb der Website unbedingt erforderlich sind. Diese Cookies erheben keine personenbezogenen Daten."
+      ]},
+      { "title": "7. Ihre Rechte (DSGVO)", "blocks": [
+        "Gemäß der Datenschutz-Grundverordnung (DSGVO) stehen Ihnen folgende Rechte zu:",
+        { "type": "ul", "items": [
+          "Recht auf Auskunft über Ihre Daten",
+          "Recht auf Berichtigung",
+          "Recht auf Löschung („Recht auf Vergessenwerden“)",
+          "Recht auf Einschränkung der Verarbeitung",
+          "Recht auf Datenübertragbarkeit",
+          "Widerspruchsrecht"
+        ]},
+        "Um diese Rechte auszuüben, kontaktieren Sie uns per E-Mail unter {email} oder per Post an unsere Adresse. Wir verpflichten uns, innerhalb eines Monats zu antworten.",
+        "Im Beschwerdefall können Sie sich an die CNIL wenden: {cnil}"
+      ]},
+      { "title": "8. Sicherheit", "blocks": [
+        "Wir setzen geeignete technische und organisatorische Maßnahmen um, um Ihre Daten vor unbefugtem Zugriff, Verlust, Zerstörung oder Veränderung zu schützen. Die Website wird ausschließlich über HTTPS bereitgestellt."
+      ]},
+      { "title": "9. Änderungen", "blocks": [
+        "Wir behalten uns das Recht vor, diese Erklärung jederzeit zu ändern. Das Aktualisierungsdatum ist oben auf dieser Seite angegeben. Wir empfehlen Ihnen, sie regelmäßig zu lesen."
+      ]}
+    ]
+  },
+  "MentionsLegales": {
+    "metaTitle": "Impressum | Azur Prestige Taxi Marseille",
+    "metaDescription": "Impressum des Premium-Taxiservices Azur Prestige in Marseille.",
+    "eyebrow": "Rechtliches",
+    "title": "Impressum",
+    "lastUpdate": "Letzte Aktualisierung: Juni 2025",
+    "privacyLabel": "Datenschutzerklärung",
+    "sections": [
+      { "title": "1. Herausgeber der Website", "blocks": [
+        "Diese Website wird herausgegeben von:",
+        { "type": "rows", "rows": [
+          { "label": "Firmenname", "value": "Azur Prestige Taxi Marseille" },
+          { "label": "Rechtsform", "value": "Auto-entrepreneur / Micro-entreprise" },
+          { "label": "SIRET", "value": "989 229 604 00016" },
+          { "label": "Konzessionsnummer", "value": "01325515101" },
+          { "label": "Adresse", "value": "Marseille, Bouches-du-Rhône (13), Frankreich" },
+          { "label": "Telefon", "value": "+33 6 66 32 38 17" },
+          { "label": "E-Mail", "value": "contact@azurprestige.fr" }
+        ]}
+      ]},
+      { "title": "2. Verantwortlicher für die Veröffentlichung", "blocks": [
+        "Verantwortlich für die Veröffentlichung ist der Geschäftsführer der Firma Azur Prestige Taxi Marseille."
+      ]},
+      { "title": "3. Hosting", "blocks": [
+        { "type": "rows", "rows": [
+          { "label": "Hoster", "value": "Vercel Inc." },
+          { "label": "Adresse", "value": "340 S Lemon Ave #4133, Walnut, CA 91789, USA" },
+          { "label": "Website", "value": "vercel.com" }
+        ]}
+      ]},
+      { "title": "4. Geistiges Eigentum", "blocks": [
+        "Der gesamte Inhalt dieser Website (Texte, Bilder, Grafiken, Logo, Symbole usw.) ist ausschließliches Eigentum von Azur Prestige Taxi Marseille, mit Ausnahme der als solche gekennzeichneten Inhalte Dritter.",
+        "Jede Vervielfältigung, Verbreitung, Änderung, Anpassung, Weiterübertragung oder Veröffentlichung dieser Elemente ist ohne die ausdrückliche schriftliche Zustimmung von Azur Prestige Taxi Marseille strengstens untersagt."
+      ]},
+      { "title": "5. Haftungsbeschränkung", "blocks": [
+        "Azur Prestige Taxi Marseille bemüht sich, die Richtigkeit und Aktualität der auf dieser Website veröffentlichten Informationen sicherzustellen, deren Inhalt es sich vorbehält, jederzeit und ohne Vorankündigung zu korrigieren.",
+        "Azur Prestige Taxi Marseille lehnt jede Haftung für etwaige Fehler oder Auslassungen in den auf dieser Website bereitgestellten Informationen ab."
+      ]},
+      { "title": "6. Personenbezogene Daten", "blocks": [
+        "Die Erhebung und Verarbeitung personenbezogener Daten ist in unserer {privacy} beschrieben."
+      ]},
+      { "title": "7. Cookies", "blocks": [
+        "Diese Website verwendet ausschließlich technische Cookies, die für ihren Betrieb erforderlich sind. Ohne Ihre Einwilligung wird kein Werbe- oder Tracking-Cookie gesetzt."
+      ]},
+      { "title": "8. Anwendbares Recht", "blocks": [
+        "Dieses Impressum unterliegt französischem Recht. Im Streitfall sind die Gerichte von Marseille zuständig."
+      ]}
+    ]
+  },
+  "Reservation": {
+    "metaTitle": "Online-Buchung | Azur Prestige Taxi Marseille",
+    "metaDescription": "Buchen Sie Ihr Premium-Taxi in Marseille online. E-Mail-Bestätigung innerhalb von 30 Minuten, Zahlung an Bord.",
+    "eyebrow": "Online-Buchung",
+    "titleLine1": "Buchen Sie Ihr",
+    "titleLine2": "Taxi online.",
+    "intro": "E-Mail-Bestätigung innerhalb von 30 Minuten. Zahlung an Bord beim Chauffeur.",
+    "step1": "Angaben",
+    "step2": "Fahrt",
+    "step3": "Bestätigung",
+    "step1Title": "Ihre Angaben",
+    "step2Title": "Ihre Fahrt",
+    "step3Title": "Zusammenfassung",
+    "firstName": "Vorname *",
+    "lastName": "Nachname *",
+    "phone": "Telefon *",
+    "email": "E-Mail *",
+    "date": "Datum *",
+    "time": "Uhrzeit *",
+    "from": "Abfahrt *",
+    "to": "Ziel *",
+    "fromPlaceholder": "z. B. Flughafen Marseille-Provence, Terminal 1",
+    "toPlaceholder": "z. B. 10 rue de la République, Marseille",
+    "passengers": "Passagiere",
+    "luggage": "Gepäck",
+    "vehicle": "Fahrzeug",
+    "messageLabel": "Nachricht (optional)",
+    "messagePlaceholder": "Kindersitz, Flugnummer, Anweisungen...",
+    "vehicles": { "berline": "Limousine", "van": "Van", "grandvan": "Großraum-Van" },
+    "recapName": "Name",
+    "recapPhone": "Telefon",
+    "recapEmail": "E-Mail",
+    "recapDate": "Datum",
+    "recapTime": "Uhrzeit",
+    "recapFrom": "Abfahrt",
+    "recapTo": "Ziel",
+    "recapVehicle": "Fahrzeug",
+    "recapPassengers": "Passagiere",
+    "recapLuggage": "Gepäck",
+    "recapMessage": "Nachricht",
+    "paymentNote": "<gold>Zahlung an Bord</gold> — bar oder Karte beim Chauffeur. Kostenlose Stornierung bis 24 Std. vorher.",
+    "back": "← Zurück",
+    "backHomeShort": "← Startseite",
+    "continue": "Weiter",
+    "confirm": "Bestätigen",
+    "sending": "Senden...",
+    "minFare": "<gold>Mindestpreis für 4 Personen</gold> — darüber hinaus Zuschlag pro Person.",
+    "guarantees": ["Bestätigung in 30 Min.", "Zahlung an Bord", "Kostenlose Stornierung 24 Std. vorher"],
+    "successTitle": "Buchung gesendet!",
+    "reference": "Referenz:",
+    "successEmail": "Eine Bestätigungs-E-Mail wurde an <email></email> gesendet.",
+    "successDelay": "Wir bestätigen die Abholung innerhalb von 30 Minuten.",
+    "callUs": "Rufen Sie uns an",
+    "errorUnknown": "Unbekannter Fehler",
+    "errorGeneric": "Fehler. Rufen Sie uns direkt an."
+  },
+  "LaisserUnAvis": {
+    "metaTitle": "Bewertung abgeben | Azur Prestige Taxi Marseille",
+    "metaDescription": "Teilen Sie Ihre Erfahrung mit Azur Prestige, Premium-Taxi in Marseille.",
+    "eyebrow": "Ihre Erfahrung",
+    "titleLine1": "Geben Sie",
+    "titleLine2": "Ihre Bewertung ab.",
+    "intro": "Teilen Sie Ihre Erfahrung mit Azur Prestige. Ihre Bewertung wird nach Prüfung veröffentlicht.",
+    "nameLabel": "Ihr Name *",
+    "namePlaceholder": "Jan D.",
+    "ratingLabel": "Ihre Bewertung *",
+    "commentLabel": "Ihr Kommentar *",
+    "commentPlaceholder": "Erzählen Sie von Ihrer Erfahrung...",
+    "starAria": "{count, plural, one {# Stern} other {# Sterne}}",
+    "submit": "Bewertung veröffentlichen",
+    "sending": "Senden...",
+    "successTitle": "Vielen Dank für Ihre Bewertung!",
+    "successText": "Ihre Bewertung wurde erfasst.\nSie wird nach Prüfung durch unser Team veröffentlicht.",
+    "backHome": "← Zurück zur Startseite",
+    "errorUnknown": "Unbekannter Fehler",
+    "errorGeneric": "Ein Fehler ist aufgetreten."
+  },
+  "EmailTemplates": {
+    "subjectClient": "Ihre Azur-Prestige-Buchung — {date} um {time}",
+    "footerTagline": "Rund um die Uhr verfügbar · Marseille &amp; Region PACA",
+    "vehicles": { "berline": "Limousine", "van": "Van", "grandvan": "Großraum-Van" },
+    "client": {
+      "eyebrow": "Buchungsbestätigung",
+      "greeting": "Guten Tag {prenom},",
+      "intro": "Wir haben Ihre Anfrage erhalten. Wir bestätigen die Abholung innerhalb von 30 Minuten.",
+      "referenceLabel": "Referenz",
+      "recapHeader": "Ihre Fahrtdetails",
+      "labelDate": "Datum",
+      "labelPickupTime": "Abholzeit",
+      "labelFrom": "Abfahrt",
+      "labelTo": "Ziel",
+      "labelVehicle": "Fahrzeug",
+      "labelPassengers": "Passagiere",
+      "labelLuggage": "Gepäck",
+      "labelMessage": "Nachricht",
+      "paymentStrong": "Zahlung an Bord",
+      "paymentText": " — direkt beim Chauffeur, in bar oder mit Karte. Keine Vorauszahlung erforderlich.",
+      "ctaContact": "Kontakt",
+      "ctaWhatsapp": "WhatsApp",
+      "statAvailability": "Verfügbarkeit",
+      "statRating": "Kundenbewertung",
+      "statCancellation": "Stornierung 24h",
+      "statCancellationValue": "Kostenlos"
+    }
+  }
+}

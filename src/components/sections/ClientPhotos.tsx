@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { engine, Engine } from "@/lib/engine";
 
 // Real client photos (taken on tour) for the destinations we have them for —
@@ -16,6 +17,7 @@ const slots = [
 ];
 
 export default function ClientPhotos() {
+  const t = useTranslations("ClientPhotos");
   const headRef  = useRef<HTMLDivElement>(null);
   const gridRef  = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -45,14 +47,14 @@ export default function ClientPhotos() {
         <div ref={headRef} className="mb-16" style={{ opacity: 1 }}>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Photos clients</span>
+            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span>
           </div>
           <h2 className="font-light leading-tight text-white"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,5.5vw,5.5rem)" }}>
-            Ils ont vécu<br /><span className="text-[#A1A1AA]">l'expérience.</span>
+            {t("titleLine1")}<br /><span className="text-[#A1A1AA]">{t("titleLine2")}</span>
           </h2>
           <p className="text-[#8A8A8A] text-base font-light leading-relaxed mt-6 max-w-xl">
-            Photos à venir — nos clients partagent leurs souvenirs de Provence.
+            {t("intro")}
           </p>
         </div>
 

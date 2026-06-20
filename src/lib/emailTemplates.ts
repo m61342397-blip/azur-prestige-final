@@ -2,7 +2,13 @@
  * Email templates HTML premium — Azur Prestige
  * CSS inline uniquement (compatibilité email clients)
  * Fond sombre, typographie soignée, palette or/noir
+ *
+ * L'email CLIENT s'affiche dans la langue choisie lors de la réservation
+ * (via les traductions du namespace `EmailTemplates`). L'email CHAUFFEUR reste
+ * en français : c'est une notification interne pour l'opérateur.
  */
+
+import { getTranslations } from "next-intl/server";
 
 const BASE = {
   bg:       "#0A0A0A",
@@ -16,9 +22,12 @@ const BASE = {
   text:     "#E4E4E7",
 };
 
-function wrapper(content: string): string {
+// Valeurs jamais traduites (téléphones, email, disponibilité, note).
+const PHONE_LINE = "+33 6 66 32 38 17 &nbsp;·&nbsp; +33 6 22 84 52 40 &nbsp;·&nbsp; contact@azurprestige.eu";
+
+function wrapper(content: string, lang: string, footerTagline: string): string {
   return `<!DOCTYPE html>
-<html lang="fr">
+<html lang="${lang}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,8 +46,8 @@ function wrapper(content: string): string {
           <tr>
             <td style="padding:32px 0 0 0;border-top:1px solid ${BASE.border};text-align:center;">
               <p style="margin:0 0 6px 0;color:${BASE.grayDark};font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-weight:300;">Azur Prestige Taxi Marseille</p>
-              <p style="margin:0 0 4px 0;color:${BASE.grayDark};font-size:11px;font-weight:300;">+33 6 66 32 38 17 &nbsp;·&nbsp; +33 6 22 84 52 40 &nbsp;·&nbsp; contact@azurprestige.eu</p>
-              <p style="margin:0;color:#3A3A3A;font-size:10px;font-weight:300;">Service disponible 24h/7j &nbsp;·&nbsp; Marseille &amp; région PACA</p>
+              <p style="margin:0 0 4px 0;color:${BASE.grayDark};font-size:11px;font-weight:300;">${PHONE_LINE}</p>
+              <p style="margin:0;color:#3A3A3A;font-size:10px;font-weight:300;">${footerTagline}</p>
             </td>
           </tr>
 
@@ -87,20 +96,22 @@ function infoRow(label: string, value: string, isLast = false): string {
   </tr>`;
 }
 
-// ── Email client ────────────────────────────────────────────────────────────
-export function emailClient(data: {
-  prenom: string; nom: string; email: string;
+type ReservationData = {
+  prenom: string; nom: string; telephone?: string; email: string;
   date_course: string; heure_course: string;
   depart: string; destination: string;
   nb_passagers: number; nb_bagages: number;
   vehicule: string; message?: string;
   refId: string;
-}): string {
-  const vehiculeLabel: Record<string, string> = { berline: "Berline", van: "Van", grandvan: "Grand Van" };
-  const dateFormatted = new Date(data.date_course).toLocaleDateString("fr-FR", {
+};
+
+// ── Email client (localisé) ─────────────────────────────────────────────────
+export async function emailClient(data: ReservationData, locale: string): Promise<string> {
+  const t = await getTranslations({ locale, namespace: "EmailTemplates" });
+  const dateFormatted = new Date(data.date_course).toLocaleDateString(locale, {
     weekday: "long", day: "numeric", month: "long", year: "numeric"
   });
-  const vLabel = vehiculeLabel[data.vehicule] ?? data.vehicule;
+  const vLabel = t(`vehicles.${data.vehicule}`);
 
   const content = `
   ${header()}
@@ -108,10 +119,10 @@ export function emailClient(data: {
   <!-- Title -->
   <tr>
     <td style="padding:0 0 28px 0;">
-      <p style="margin:0 0 8px 0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:300;">Confirmation de réservation</p>
-      <h1 style="margin:0;color:${BASE.white};font-size:28px;font-weight:300;line-height:1.2;letter-spacing:-0.01em;">Bonjour ${data.prenom},</h1>
+      <p style="margin:0 0 8px 0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:300;">${t("client.eyebrow")}</p>
+      <h1 style="margin:0;color:${BASE.white};font-size:28px;font-weight:300;line-height:1.2;letter-spacing:-0.01em;">${t("client.greeting", { prenom: data.prenom })}</h1>
       <p style="margin:12px 0 0 0;color:${BASE.gray};font-size:14px;font-weight:300;line-height:1.6;">
-        Votre demande a bien été reçue. Nous confirmons la prise en charge sous 30 minutes.
+        ${t("client.intro")}
       </p>
     </td>
   </tr>
@@ -122,7 +133,7 @@ export function emailClient(data: {
       <table role="presentation" cellpadding="0" cellspacing="0">
         <tr>
           <td style="background-color:${BASE.surface};border:1px solid ${BASE.gold};padding:8px 20px;">
-            <span style="color:${BASE.grayDark};font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">Référence</span>
+            <span style="color:${BASE.grayDark};font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">${t("client.referenceLabel")}</span>
             &nbsp;&nbsp;
             <span style="color:${BASE.gold};font-size:13px;font-weight:400;letter-spacing:0.1em;">${data.refId}</span>
           </td>
@@ -137,17 +148,17 @@ export function emailClient(data: {
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${BASE.surface};border:1px solid ${BASE.border};">
         <tr>
           <td style="padding:16px 24px;border-bottom:1px solid ${BASE.border};">
-            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:300;">Détails de votre course</p>
+            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:300;">${t("client.recapHeader")}</p>
           </td>
         </tr>
-        ${infoRow("Date", dateFormatted)}
-        ${infoRow("Heure de prise en charge", data.heure_course)}
-        ${infoRow("Départ", data.depart)}
-        ${infoRow("Destination", data.destination)}
-        ${infoRow("Véhicule", vLabel)}
-        ${infoRow("Passagers", String(data.nb_passagers))}
-        ${infoRow("Bagages", String(data.nb_bagages), !data.message)}
-        ${data.message ? infoRow("Message", data.message, true) : ""}
+        ${infoRow(t("client.labelDate"), dateFormatted)}
+        ${infoRow(t("client.labelPickupTime"), data.heure_course)}
+        ${infoRow(t("client.labelFrom"), data.depart)}
+        ${infoRow(t("client.labelTo"), data.destination)}
+        ${infoRow(t("client.labelVehicle"), vLabel)}
+        ${infoRow(t("client.labelPassengers"), String(data.nb_passagers))}
+        ${infoRow(t("client.labelLuggage"), String(data.nb_bagages), !data.message)}
+        ${data.message ? infoRow(t("client.labelMessage"), data.message, true) : ""}
       </table>
     </td>
   </tr>
@@ -159,7 +170,7 @@ export function emailClient(data: {
         <tr>
           <td style="padding:14px 20px;background-color:${BASE.surface};">
             <p style="margin:0;color:${BASE.gray};font-size:13px;font-weight:300;line-height:1.6;">
-              <span style="color:${BASE.gold};">Paiement sur place</span> — directement auprès du chauffeur, en espèces ou par carte bancaire. Aucun prépaiement requis.
+              <span style="color:${BASE.gold};">${t("client.paymentStrong")}</span>${t("client.paymentText")}
             </p>
           </td>
         </tr>
@@ -173,11 +184,11 @@ export function emailClient(data: {
       <table role="presentation" cellpadding="0" cellspacing="0">
         <tr>
           <td style="background-color:${BASE.gold};padding:0;">
-            <a href="tel:+33666323817" style="display:block;padding:14px 32px;color:${BASE.bg};font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Nous contacter</a>
+            <a href="tel:+33666323817" style="display:block;padding:14px 32px;color:${BASE.bg};font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">${t("client.ctaContact")}</a>
           </td>
           <td width="12"></td>
           <td style="border:1px solid ${BASE.border};padding:0;">
-            <a href="https://wa.me/33666323817" style="display:block;padding:13px 32px;color:${BASE.gray};font-size:11px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">WhatsApp</a>
+            <a href="https://wa.me/33666323817" style="display:block;padding:13px 32px;color:${BASE.gray};font-size:11px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">${t("client.ctaWhatsapp")}</a>
           </td>
         </tr>
       </table>
@@ -191,35 +202,28 @@ export function emailClient(data: {
         <tr>
           <td width="33%" style="text-align:center;padding:16px;">
             <p style="margin:0 0 4px 0;color:${BASE.gold};font-size:18px;font-weight:300;">24h</p>
-            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">Disponibilité</p>
+            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">${t("client.statAvailability")}</p>
           </td>
           <td width="1" style="background-color:${BASE.border};"></td>
           <td width="33%" style="text-align:center;padding:16px;">
             <p style="margin:0 0 4px 0;color:${BASE.gold};font-size:18px;font-weight:300;">4.9/5</p>
-            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">Note clients</p>
+            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">${t("client.statRating")}</p>
           </td>
           <td width="1" style="background-color:${BASE.border};"></td>
           <td width="33%" style="text-align:center;padding:16px;">
-            <p style="margin:0 0 4px 0;color:${BASE.gold};font-size:18px;font-weight:300;">Gratuit</p>
-            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">Annulation 24h</p>
+            <p style="margin:0 0 4px 0;color:${BASE.gold};font-size:18px;font-weight:300;">${t("client.statCancellationValue")}</p>
+            <p style="margin:0;color:${BASE.grayDark};font-size:10px;letter-spacing:0.15em;text-transform:uppercase;">${t("client.statCancellation")}</p>
           </td>
         </tr>
       </table>
     </td>
   </tr>`;
 
-  return wrapper(content);
+  return wrapper(content, locale, t("footerTagline"));
 }
 
-// ── Email chauffeur ─────────────────────────────────────────────────────────
-export function emailChauffeur(data: {
-  prenom: string; nom: string; telephone: string; email: string;
-  date_course: string; heure_course: string;
-  depart: string; destination: string;
-  nb_passagers: number; nb_bagages: number;
-  vehicule: string; message?: string;
-  refId: string;
-}): string {
+// ── Email chauffeur (français — notification interne opérateur) ──────────────
+export function emailChauffeur(data: ReservationData & { telephone: string }): string {
   const vehiculeLabel: Record<string, string> = { berline: "Berline", van: "Van", grandvan: "Grand Van" };
   const dateFormatted = new Date(data.date_course).toLocaleDateString("fr-FR", {
     weekday: "long", day: "numeric", month: "long", year: "numeric"
@@ -307,5 +311,5 @@ export function emailChauffeur(data: {
     </td>
   </tr>`;
 
-  return wrapper(content);
+  return wrapper(content, "fr", "Service disponible 24h/7j &nbsp;·&nbsp; Marseille &amp; région PACA");
 }

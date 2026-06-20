@@ -1,18 +1,40 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { Phone, Mail, MessageCircle, ShieldCheck } from "lucide-react";
 import ContactChoice from "@/components/ui/ContactChoice";
+import { Link, usePathname } from "@/i18n/navigation";
+
+// Cibles des liens (les libellés viennent des messages, par index).
+const SERVICE_HREFS = ["#tourisme", "#services", "#services", "#services", "#services", "#services"];
+const INFO_HREFS    = ["#faq", "#vehicules", "#calculateur", "/laisser-un-avis", "#contact"];
+const LEGAL_HREFS   = ["/mentions-legales", "/confidentialite", "/cgv"];
 
 export default function Footer() {
-  const pathname = usePathname();
+  const t = useTranslations("Footer");
+  const locale = useLocale();
+  const pathname = usePathname(); // sans préfixe de langue ; "/" sur l'accueil
 
-  // Les ancres (#section) ne pointent vers une vraie cible que sur la page
-  // d'accueil. Hors home, on les préfixe en /#section pour revenir sur la home
-  // puis scroller vers la bonne section (le scroll est géré par SmoothScroll).
-  // Les vrais chemins (/laisser-un-avis, /mentions-legales…) restent intacts.
-  const resolve = (href: string) =>
-    href.startsWith("#") && pathname !== "/" ? `/${href}` : href;
+  // Ancres (#section) : sur l'accueil on garde le scroll direct ; ailleurs on
+  // renvoie vers l'accueil DE LA LANGUE COURANTE + ancre. Les vrais chemins
+  // passent par <Link> next-intl (préfixe de langue automatique).
+  const prefix = locale === "fr" ? "" : `/${locale}`;
+  const anchorHref = (href: string) => {
+    if (pathname === "/") return href;
+    const homePath = prefix === "" ? "/" : prefix;
+    return `${homePath}${href}`;
+  };
+
+  const linkClass = "text-[#A1A1AA] text-sm font-light hover:text-white transition-colors duration-300";
+
+  const renderLink = (href: string, label: string, className: string) =>
+    href.startsWith("#")
+      ? <a href={anchorHref(href)} className={className}>{label}</a>
+      : <Link href={href} className={className}>{label}</Link>;
+
+  const services = t.raw("services") as string[];
+  const info = t.raw("info") as string[];
+  const legal = t.raw("legal") as string[];
 
   return (
     <footer className="border-t border-white/[0.05] pt-16 pb-0">
@@ -29,13 +51,12 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[#A1A1AA] text-base font-light leading-relaxed max-w-xs">
-              Tourisme accompagné à Marseille et en Provence. Transferts aéroport, gare,
-              circuits sur mesure. Disponible 24h/7j, 365 jours par an.
+              {t("tagline")}
             </p>
             <div className="inline-flex items-center gap-2 mt-5 border border-[#D4AF37]/30 px-3 py-1.5">
               <ShieldCheck size={13} className="text-[#D4AF37] shrink-0" />
               <span className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase font-light">
-                Taxi sous licence officielle de l'État
+                {t("licence")}
               </span>
             </div>
             <div className="flex items-center gap-5 mt-8">
@@ -60,43 +81,20 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-[#707070] text-[10px] tracking-[0.3em] uppercase mb-6 font-light">Services</h4>
+            <h4 className="text-[#707070] text-[10px] tracking-[0.3em] uppercase mb-6 font-light">{t("servicesTitle")}</h4>
             <ul className="space-y-3">
-              {[
-                { label: "Tourisme Accompagné", href: "#tourisme" },
-                { label: "Transfert Aéroport",  href: "#services" },
-                { label: "Prise en charge Gare",href: "#services" },
-                { label: "Transport Médical",   href: "#services" },
-                { label: "Événements",          href: "#services" },
-                { label: "Longue Distance",     href: "#services" },
-              ].map((s) => (
-                <li key={s.label}>
-                  <a href={resolve(s.href)}
-                    className="text-[#A1A1AA] text-sm font-light hover:text-white transition-colors duration-300">
-                    {s.label}
-                  </a>
-                </li>
+              {services.map((label, i) => (
+                <li key={i}>{renderLink(SERVICE_HREFS[i], label, linkClass)}</li>
               ))}
             </ul>
           </div>
 
           {/* Info */}
           <div>
-            <h4 className="text-[#707070] text-[10px] tracking-[0.3em] uppercase mb-6 font-light">Informations</h4>
+            <h4 className="text-[#707070] text-[10px] tracking-[0.3em] uppercase mb-6 font-light">{t("infoTitle")}</h4>
             <ul className="space-y-3">
-              {[
-                { label: "FAQ",                href: "#faq"              },
-                { label: "Nos véhicules",      href: "#vehicules"        },
-                { label: "Devis",              href: "#calculateur"      },
-                { label: "Laisser un avis",    href: "/laisser-un-avis"  },
-                { label: "Contact",            href: "#contact"          },
-              ].map((item) => (
-                <li key={item.label}>
-                  <a href={resolve(item.href)}
-                    className="text-[#A1A1AA] text-sm font-light hover:text-white transition-colors duration-300">
-                    {item.label}
-                  </a>
-                </li>
+              {info.map((label, i) => (
+                <li key={i}>{renderLink(INFO_HREFS[i], label, linkClass)}</li>
               ))}
             </ul>
           </div>
@@ -107,21 +105,17 @@ export default function Footer() {
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500/70" />
             <span className="text-[#707070] text-xs font-light">
-              © {new Date().getFullYear()} Azur Prestige Taxi Marseille · SIRET 989 229 604 00016
+              © {new Date().getFullYear()} {t("copyright")}
             </span>
           </div>
 
           {/* Legal links */}
           <div className="flex items-center gap-5 flex-wrap">
-            {[
-              { label: "Mentions légales",         href: "/mentions-legales" },
-              { label: "Confidentialité",          href: "/confidentialite"  },
-              { label: "CGV",                      href: "/cgv"              },
-            ].map((item) => (
-              <a key={item.href} href={item.href}
+            {legal.map((label, i) => (
+              <Link key={LEGAL_HREFS[i]} href={LEGAL_HREFS[i]}
                 className="text-[#707070] text-xs font-light hover:text-[#D4AF37] transition-colors duration-300">
-                {item.label}
-              </a>
+                {label}
+              </Link>
             ))}
           </div>
         </div>

@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowRight, MapPin, ShieldCheck } from "lucide-react";
 import { engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+  const bar = t.raw("bar") as string[];
   const bgRef      = useRef<HTMLDivElement>(null);  // parallax image
   const overlayRef = useRef<HTMLDivElement>(null);  // darkens on scroll
   const headRef    = useRef<HTMLDivElement>(null);  // title block lifts
@@ -74,7 +77,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[110vh] flex flex-col justify-center overflow-hidden">
+    <section className="relative h-[110vh] flex flex-col justify-center pt-20 lg:pt-24 pb-16 lg:pb-20 overflow-hidden">
       {/* BG image — lives in oversized wrapper for parallax headroom */}
       <div ref={imgWrap} className="absolute inset-0" style={{ clipPath: "inset(0 0 100% 0)" }}>
         <div ref={bgRef}
@@ -102,28 +105,28 @@ export default function Hero() {
         <div ref={eyeRef} className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-8" style={{ opacity: 0 }}>
           <div className="flex items-center gap-3">
             <div className="w-5 h-px bg-[#D4AF37]" />
-            <span className="text-[10px] tracking-[0.45em] uppercase font-light" style={{ color: "#D4AF37" }}>Tourisme Accompagné · Marseille</span>
+            <span className="text-[10px] tracking-[0.45em] uppercase font-light" style={{ color: "#D4AF37" }}>{t("eyebrow")}</span>
           </div>
           <div className="inline-flex items-center gap-1.5 border border-[#D4AF37]/40 px-2.5 py-1 bg-black/30 backdrop-blur-sm">
             <ShieldCheck size={12} className="text-[#D4AF37] shrink-0" />
-            <span className="text-[9px] tracking-[0.25em] uppercase font-light" style={{ color: "#ffffff" }}>Taxi agréé par l'État</span>
+            <span className="text-[9px] tracking-[0.25em] uppercase font-light" style={{ color: "#ffffff" }}>{t("badge")}</span>
           </div>
         </div>
 
         <h1 className="font-light leading-[0.85] tracking-[-0.02em] mb-10"
           style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(4rem,11vw,11rem)" }}>
           <div className="overflow-hidden mb-1">
-            <span ref={w1Ref} className="block" style={{ transform: "translateY(108%)", color: "#ffffff" }}>Marseille.</span>
+            <span ref={w1Ref} className="block" style={{ transform: "translateY(108%)", color: "#ffffff" }}>{t("title1")}</span>
           </div>
           <div className="overflow-hidden">
-            <span ref={w2Ref} className="block text-[#D4AF37]" style={{ transform: "translateY(108%)", color: "#D4AF37" }}>Sans attente.</span>
+            <span ref={w2Ref} className="block text-[#D4AF37]" style={{ transform: "translateY(108%)", color: "#D4AF37" }}>{t("title2")}</span>
           </div>
         </h1>
 
         <p ref={subRef} className="text-lg lg:text-xl font-light leading-relaxed max-w-lg mb-12" style={{ opacity: 0, color: "#C8C8C8" }}>
-          Votre chauffeur reste à vos côtés toute la journée.<br />
-          Marseille, Provence, Calanques — découverte complète,<br />
-          de A à Z, à votre rythme.
+          {t("subtitle").split("\n").map((line, i, arr) => (
+            <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+          ))}
         </p>
 
         <div ref={ctaRef} className="flex items-center gap-4 flex-wrap" style={{ opacity: 0 }}>
@@ -131,12 +134,12 @@ export default function Hero() {
             mode="call"
             align="left"
             className="flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
-            trigger={<>Réserver maintenant <ArrowRight size={14} /></>}
+            trigger={<>{t("ctaBook")} <ArrowRight size={14} /></>}
           />
           <a href="#services"
             className="border border-white/30 px-8 py-4 text-sm font-light tracking-[0.1em] uppercase hover:border-[#D4AF37] hover:bg-white/10 transition-all duration-300"
             style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
-            Découvrir
+            {t("ctaDiscover")}
           </a>
         </div>
       </div>
@@ -144,10 +147,10 @@ export default function Hero() {
       {/* Bottom strip */}
       <div ref={barRef} className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/[0.08] bg-black/55 backdrop-blur-md" style={{ opacity: 0, textShadow: "0 1px 12px rgba(0,0,0,0.85)" }}>
         <div className="max-w-[1400px] mx-auto px-8 lg:px-20 flex items-center divide-x divide-white/[0.06]">
-          {["Tourisme Privé · ~ 6 à 8h", "Aéroport Marseille-Provence", "Gare Saint-Charles", "Taxi sous licence officielle de l'État"].map((t, i) => (
+          {bar.map((label, i) => (
             <div key={i} className="flex items-center gap-2 px-6 py-4 first:pl-0">
               <MapPin size={12} className="text-[#D4AF37] shrink-0" />
-              <span className="text-[11px] tracking-wide font-light whitespace-nowrap" style={{ color: "#B8B8B8" }}>{t}</span>
+              <span className="text-[11px] tracking-wide font-light whitespace-nowrap" style={{ color: "#B8B8B8" }}>{label}</span>
             </div>
           ))}
         </div>

@@ -1,129 +1,28 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowRight, Clock, MessageCircle } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
 
-const circuits = [
-  {
-    name: "Circuit Marseille Essentiel",
-    subtitle: "6 monuments · ~ 2h à 2h30",
-    pageBg: "#F5E6D3",
-    textPrimary: "#2A1505",
-    textSecondary: "#5C3010",
-    textMuted: "#8A5030",
-    borderColor: "rgba(42,21,5,0.15)",
-    accent: "#C17A3A",
-    pageGlow: "193,122,58",
-    glowPos: "80% 20%",
-    desc: "Découvrez le cœur historique de Marseille. Du Palais du Pharo avec sa vue imprenable sur la rade, jusqu'au Vieux-Port animé, en passant par Notre-Dame de la Garde et la Cathédrale de la Major.",
-    monuments: [
-      "Palais du Pharo — vue panoramique sur la rade",
-      "Monument aux Morts — vue sur l'île du Frioul & Château d'If (Comte de Monte Cristo)",
-      "Notre-Dame de la Garde",
-      "Cathédrale de la Major",
-      "Quartier du Panier",
-      "Vieux-Port",
-    ],
-    duration: "~ 2h à 2h30",
-    image: "/images/tourisme/marseille.jpg",
-    whatsapp: "Bonjour, je souhaite réserver le Circuit Marseille Essentiel (6 monuments).",
-  },
-  {
-    name: "Circuit Marseille Complet",
-    subtitle: "8 monuments · ~ 3h à 3h30",
-    pageBg: "#F5E6D3",
-    textPrimary: "#2A1505",
-    textSecondary: "#5C3010",
-    textMuted: "#8A5030",
-    borderColor: "rgba(42,21,5,0.15)",
-    accent: "#B87030",
-    pageGlow: "184,112,48",
-    glowPos: "20% 40%",
-    desc: "Le circuit Essentiel enrichi de deux joyaux supplémentaires : l'Abbaye Saint-Victor, l'une des plus anciennes églises de France, et le majestueux Palais Longchamp.",
-    monuments: [
-      "Palais du Pharo",
-      "Monument aux Morts — vue île du Frioul & Château d'If (Comte de Monte Cristo)",
-      "Notre-Dame de la Garde",
-      "Cathédrale de la Major",
-      "Quartier du Panier",
-      "Vieux-Port",
-      "Abbaye Saint-Victor",
-      "Palais Longchamp",
-    ],
-    duration: "~ 3h à 3h30",
-    image: "/images/tourisme/marseille-notre-dame.jpg",
-    whatsapp: "Bonjour, je souhaite réserver le Circuit Marseille Complet (8 monuments).",
-  },
-  {
-    name: "Circuit Cassis",
-    subtitle: "Port & Falaises · ~ 4h à 5h",
-    pageBg: "#E0F4F4",
-    textPrimary: "#012A2A",
-    textSecondary: "#0A4040",
-    textMuted: "#2A6060",
-    borderColor: "rgba(1,42,42,0.15)",
-    accent: "#0097A7",
-    pageGlow: "0,151,167",
-    glowPos: "60% 30%",
-    desc: "Cap sur Cassis. Découvrez le port pittoresque de Cassis et la vue sur le Cap Canaille — la plus haute falaise maritime d'Europe, culminant à ~ 400 mètres.",
-    monuments: [
-      "Port de Cassis",
-      "Cap Canaille — ~ 400m, plus haute falaise maritime d'Europe",
-      "Calanques depuis le port",
-    ],
-    duration: "~ 4h à 5h",
-    image: "/images/tourisme/cassis.jpg",
-    whatsapp: "Bonjour, je souhaite réserver le Circuit Cassis (4h à 5h).",
-  },
-  {
-    name: "Circuit Cassis + Aix",
-    subtitle: "Journée complète · ~ 6h à 7h",
-    pageBg: "#F5EDD0",
-    textPrimary: "#2A1A00",
-    textSecondary: "#4A3010",
-    textMuted: "#7A5A20",
-    borderColor: "rgba(42,26,0,0.15)",
-    accent: "#8B6914",
-    pageGlow: "180,140,40",
-    glowPos: "30% 60%",
-    desc: "La journée idéale : Aix-en-Provence le matin avec ses marchés provençaux et ses fontaines, puis Cassis l'après-midi avec son port et la vue vertigineuse sur le Cap Canaille (~ 400m). Pause repas incluse.",
-    monuments: [
-      "Cours Mirabeau — Aix-en-Provence",
-      "Marchés et fontaines provençales",
-      "Port de Cassis",
-      "Cap Canaille — falaise ~ 400m",
-    ],
-    duration: "~ 6h à 7h · pause repas incluse",
-    image: "/images/tourisme/aix.jpg",
-    whatsapp: "Bonjour, je souhaite réserver le Circuit Cassis + Aix (journée complète).",
-  },
-  {
-    name: "Circuit Valensole",
-    subtitle: "Champs de Lavande · ~ 6h",
-    pageBg: "#EDE0F5",
-    textPrimary: "#1A0A2A",
-    textSecondary: "#3A1A5A",
-    textMuted: "#6A4A8A",
-    borderColor: "rgba(26,10,42,0.15)",
-    accent: "#7B1FA2",
-    pageGlow: "123,31,162",
-    glowPos: "70% 25%",
-    desc: "Évadez-vous au cœur de la Provence authentique. Les champs de lavande à perte de vue de Valensole offrent un spectacle inoubliable. ~ 4h sur place pour se promener, photographier et respirer la Provence.",
-    monuments: [
-      "Plateau de Valensole",
-      "Champs de lavande à perte de vue",
-      "Villages provençaux",
-      "Panoramas exceptionnels",
-    ],
-    duration: "~ 6h total · ~ 4h sur place",
-    image: "/images/tourisme/valensole.jpg",
-    whatsapp: "Bonjour, je souhaite réserver le Circuit Valensole (champs de lavande).",
-  },
+// Habillage visuel par circuit (couleurs, glow, image) — non traduit.
+// Les textes (name, subtitle, desc, monuments, duration, whatsapp) viennent
+// des messages, fusionnés par index.
+const STYLES = [
+  { pageBg: "#F5E6D3", textPrimary: "#2A1505", textSecondary: "#5C3010", textMuted: "#8A5030", borderColor: "rgba(42,21,5,0.15)", accent: "#C17A3A", pageGlow: "193,122,58", glowPos: "80% 20%", image: "/images/tourisme/marseille.jpg" },
+  { pageBg: "#F5E6D3", textPrimary: "#2A1505", textSecondary: "#5C3010", textMuted: "#8A5030", borderColor: "rgba(42,21,5,0.15)", accent: "#B87030", pageGlow: "184,112,48", glowPos: "20% 40%", image: "/images/tourisme/marseille-notre-dame.jpg" },
+  { pageBg: "#E0F4F4", textPrimary: "#012A2A", textSecondary: "#0A4040", textMuted: "#2A6060", borderColor: "rgba(1,42,42,0.15)", accent: "#0097A7", pageGlow: "0,151,167", glowPos: "60% 30%", image: "/images/tourisme/cassis.jpg" },
+  { pageBg: "#F5EDD0", textPrimary: "#2A1A00", textSecondary: "#4A3010", textMuted: "#7A5A20", borderColor: "rgba(42,26,0,0.15)", accent: "#8B6914", pageGlow: "180,140,40", glowPos: "30% 60%", image: "/images/tourisme/aix.jpg" },
+  { pageBg: "#EDE0F5", textPrimary: "#1A0A2A", textSecondary: "#3A1A5A", textMuted: "#6A4A8A", borderColor: "rgba(26,10,42,0.15)", accent: "#7B1FA2", pageGlow: "123,31,162", glowPos: "70% 25%", image: "/images/tourisme/valensole.jpg" },
 ];
 
+type CircuitText = { name: string; subtitle: string; desc: string; monuments: string[]; duration: string; whatsapp: string };
+
 export default function Tourism() {
+  const t = useTranslations("Tourism");
+  const circuits = STYLES.map((s, i) => ({ ...s, ...(t.raw("circuits") as CircuitText[])[i] }));
+
   const [active, setActive] = useState(0);
   const secRef  = useRef<HTMLDivElement>(null);
   const headRef = useRef<HTMLDivElement>(null);
@@ -244,18 +143,17 @@ export default function Tourism() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px" style={{ background: d.accent }} />
             <span className="text-xs tracking-[0.35em] uppercase font-light" style={{ color: d.accent }}>
-              Tourisme accompagné
+              {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-light leading-tight"
             style={{ color: d.textPrimary, fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,5.5vw,5.5rem)" }}>
-            Marseille & la Provence,<br />
-            <span style={{ color: d.textSecondary }}>votre chauffeur reste avec vous.</span>
+            {t("titleLine1")}<br />
+            <span style={{ color: d.textSecondary }}>{t("titleLine2")}</span>
           </h2>
           <p className="text-base font-light leading-relaxed mt-6 max-w-2xl"
             style={{ color: d.textMuted }}>
-            Pas un simple transfert — un accompagnement complet sur ~ 6 à 8h. Votre chauffeur vous guide,
-            attend pendant vos visites, vous emmène déjeuner et reste à vos côtés du matin au soir.
+            {t("intro")}
           </p>
         </div>
 
@@ -309,7 +207,7 @@ export default function Tourism() {
 
             {/* Monuments */}
             <div className="mb-8">
-              <p className="text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: d.textMuted }}>Au programme</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: d.textMuted }}>{t("programLabel")}</p>
               <div className="space-y-2">
                 {d.monuments.map((m, i) => (
                   <div key={i} className="flex items-start gap-3 font-light"
@@ -333,12 +231,12 @@ export default function Tourism() {
             {/* Tarif sur devis */}
             <div className="p-5 mb-8 transition-colors duration-700"
               style={{ border: `1px solid rgba(${d.pageGlow},0.22)`, background: `rgba(${d.pageGlow},0.07)` }}>
-              <p className="text-[10px] uppercase tracking-[0.25em] mb-2" style={{ color: d.textMuted }}>Tarif</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] mb-2" style={{ color: d.textMuted }}>{t("tarifLabel")}</p>
               <p className="font-light text-base" style={{ color: d.textSecondary }}>
-                Tarif sur devis — contactez-nous directement sur WhatsApp.
+                {t("tarifText")}
               </p>
               <p className="text-[10px] pt-2 font-light" style={{ color: d.textMuted }}>
-                Tarif minimum pour 4 personnes · au-delà, supplément par personne · paiement à bord.
+                {t("tarifNote")}
               </p>
             </div>
 
@@ -352,7 +250,7 @@ export default function Tourism() {
               style={{ background: d.accent, color: "#ffffff" }}
               trigger={<>
                 <MessageCircle size={14} />
-                Demander ce circuit sur WhatsApp
+                {t("cta")}
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </>}
             />

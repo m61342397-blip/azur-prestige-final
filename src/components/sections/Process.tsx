@@ -1,18 +1,24 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { engine, Engine } from "@/lib/engine";
 
-const steps = [
-  { n: "01", title: "Réservation",     x: 60,  y: 70  },
-  { n: "02", title: "Confirmation",    x: 260, y: 175 },
-  { n: "03", title: "Prise en charge", x: 460, y: 70  },
-  { n: "04", title: "Arrivée",         x: 660, y: 175 },
+// Positions sur la courbe (structurel) ; les titres viennent des messages.
+const STEPS = [
+  { n: "01", x: 60,  y: 70  },
+  { n: "02", x: 260, y: 175 },
+  { n: "03", x: 460, y: 70  },
+  { n: "04", x: 660, y: 175 },
 ];
 
 const PATH = "M60,70 C160,70 160,175 260,175 C360,175 360,70 460,70 C560,70 560,175 660,175";
 
 export default function Process() {
+  const t = useTranslations("Process");
+  const titles = t.raw("steps") as string[];
+  const steps = STEPS.map((s, i) => ({ ...s, title: titles[i] }));
+
   const secRef   = useRef<HTMLDivElement>(null);
   const headRef  = useRef<HTMLDivElement>(null);
   const drawRef  = useRef<HTMLDivElement>(null);
@@ -79,9 +85,9 @@ export default function Process() {
     <section ref={secRef} className="py-24 lg:py-36 border-t border-white/[0.04]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div ref={headRef} className="mb-16" style={{ opacity: 1 }}>
-          <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Comment ça marche</span></div>
+          <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span></div>
           <h2 className="font-light leading-tight text-white" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem,5vw,5rem)" }}>
-            Simple,<br /><span className="text-[#A1A1AA]">rapide, fiable.</span>
+            {t("titleLine1")}<br /><span className="text-[#A1A1AA]">{t("titleLine2")}</span>
           </h2>
         </div>
 

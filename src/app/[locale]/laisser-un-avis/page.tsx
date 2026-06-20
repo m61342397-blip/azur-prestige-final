@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Star, ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import GlobalAmbient from "@/components/layout/GlobalAmbient";
+import { Link } from "@/i18n/navigation";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function LaisserUnAvis() {
+  const t = useTranslations("LaisserUnAvis");
   const [nom, setNom] = useState("");
   const [note, setNote] = useState(0);
   const [hover, setHover] = useState(0);
@@ -33,10 +36,10 @@ export default function LaisserUnAvis() {
         body: JSON.stringify({ nom, note, commentaire }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Erreur inconnue");
+      if (!res.ok) throw new Error(json.error || t("errorUnknown"));
       setStatus("success");
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : "Une erreur est survenue.");
+      setError(e instanceof Error ? e.message : t("errorGeneric"));
       setStatus("error");
     }
   };
@@ -53,18 +56,19 @@ export default function LaisserUnAvis() {
               className="font-light text-white mb-4"
               style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem,4vw,3.5rem)" }}
             >
-              Merci pour votre avis !
+              {t("successTitle")}
             </h1>
             <p className="text-[#A1A1AA] font-light leading-relaxed mb-10">
-              Votre avis a bien été enregistré.<br />
-              Il sera publié après validation par notre équipe.
+              {t("successText").split("\n").map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </p>
-            <a
+            <Link
               href="/"
               className="inline-block bg-[#D4AF37] text-[#050505] px-8 py-3.5 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
             >
-              ← Retour à l'accueil
-            </a>
+              {t("backHome")}
+            </Link>
           </div>
         </div>
         <Footer />
@@ -81,18 +85,18 @@ export default function LaisserUnAvis() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#D4AF37]" />
             <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">
-              Votre expérience
+              {t("eyebrow")}
             </span>
           </div>
           <h1
             className="font-light leading-tight text-white mb-4"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem,5vw,5rem)" }}
           >
-            Laissez<br />
-            <span className="text-[#D4AF37]">votre avis.</span>
+            {t("titleLine1")}<br />
+            <span className="text-[#D4AF37]">{t("titleLine2")}</span>
           </h1>
           <p className="text-[#A1A1AA] font-light leading-relaxed max-w-lg">
-            Partagez votre expérience avec Azur Prestige. Votre avis sera publié après validation.
+            {t("intro")}
           </p>
         </div>
 
@@ -100,10 +104,10 @@ export default function LaisserUnAvis() {
         <div className="border border-white/[0.06] p-8 lg:p-10">
           {/* Nom */}
           <div className="mb-6">
-            <label className={lbl}>Votre nom *</label>
+            <label className={lbl}>{t("nameLabel")}</label>
             <input
               className={inp}
-              placeholder="Jean D."
+              placeholder={t("namePlaceholder")}
               maxLength={80}
               value={nom}
               onChange={(e) => setNom(e.target.value)}
@@ -112,7 +116,7 @@ export default function LaisserUnAvis() {
 
           {/* Note */}
           <div className="mb-6">
-            <label className={lbl}>Votre note *</label>
+            <label className={lbl}>{t("ratingLabel")}</label>
             <div className="flex items-center gap-2" onMouseLeave={() => setHover(0)}>
               {[1, 2, 3, 4, 5].map((n) => {
                 const active = (hover || note) >= n;
@@ -120,7 +124,7 @@ export default function LaisserUnAvis() {
                   <button
                     key={n}
                     type="button"
-                    aria-label={`${n} étoile${n > 1 ? "s" : ""}`}
+                    aria-label={t("starAria", { count: n })}
                     onMouseEnter={() => setHover(n)}
                     onClick={() => setNote(n)}
                     className="transition-transform duration-200 hover:scale-110"
@@ -144,12 +148,12 @@ export default function LaisserUnAvis() {
 
           {/* Commentaire */}
           <div className="mb-8">
-            <label className={lbl}>Votre commentaire *</label>
+            <label className={lbl}>{t("commentLabel")}</label>
             <textarea
               className={inp + " resize-none"}
               rows={5}
               maxLength={1000}
-              placeholder="Racontez votre expérience..."
+              placeholder={t("commentPlaceholder")}
               value={commentaire}
               onChange={(e) => setCommentaire(e.target.value)}
             />
@@ -167,16 +171,16 @@ export default function LaisserUnAvis() {
             disabled={!canSubmit || status === "loading"}
             className="flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-8 py-3.5 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            {status === "loading" ? "Envoi..." : <>Publier mon avis <ArrowRight size={13} /></>}
+            {status === "loading" ? t("sending") : <>{t("submit")} <ArrowRight size={13} /></>}
           </button>
         </div>
 
-        <a
+        <Link
           href="/"
           className="inline-block mt-8 text-[#707070] text-sm font-light uppercase tracking-[0.15em] hover:text-white transition-colors"
         >
-          ← Retour à l'accueil
-        </a>
+          {t("backHome")}
+        </Link>
       </div>
       <Footer />
     </main>

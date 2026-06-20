@@ -1,21 +1,27 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { engine, Engine } from "@/lib/engine";
 
-const stats = [
-  { value: 24,    suffix: "h/7j", label: "Disponibilité",  desc: "Toujours là pour vous" },
-  { value: 3,     suffix: " ans",  label: "D'expérience",    desc: "Une équipe jeune & dynamique" },
-  { value: 15000, suffix: "+",     label: "Clients servis",  desc: "Particuliers & entreprises" },
-  { value: 4.9,   suffix: "/5",    label: "Note moyenne",    desc: "847 avis vérifiés" },
-];
+// Valeurs numériques (non traduites) ; libellés/suffixes viennent des messages.
+const VALUES = [24, 3, 15000, 4.9];
 
 export default function Stats() {
+  const t = useTranslations("Stats");
+  const locale = useLocale();
+  const items = (t.raw("items") as { suffix: string; label: string; desc: string }[])
+    .map((m, i) => ({ ...m, value: VALUES[i] }));
+
   const secRef   = useRef<HTMLDivElement>(null);
   const rowRef   = useRef<HTMLDivElement>(null);
   const numsRef  = useRef<HTMLSpanElement[]>([]);
   const lineRef  = useRef<HTMLDivElement>(null);
   const fired    = useRef([false,false,false,false]);
+
+  // Refs lues dans l'effet (deps vides) : la langue est figée pour le rendu.
+  const itemsRef = useRef(items);
+  itemsRef.current = items;
 
   useEffect(() => {
     const unsub = engine.subscribe(() => {
@@ -36,16 +42,17 @@ export default function Stats() {
         lineRef.current.style.transform = `scaleX(${p})`;
 
       // Per-item counters
-      stats.forEach((stat, i) => {
+      VALUES.forEach((value, i) => {
         const lp = Engine.band(p, i * 0.08, i * 0.08 + 0.45);
         if (lp > 0.3 && !fired.current[i]) {
           fired.current[i] = true;
           const numEl = numsRef.current[i];
           if (!numEl) return;
 
-          const finalText = stat.value === 4.9
-            ? stat.value.toFixed(1) + stat.suffix
-            : Math.round(stat.value).toLocaleString("fr-FR") + stat.suffix;
+          const suffix = itemsRef.current[i].suffix;
+          const finalText = value === 4.9
+            ? value.toFixed(1) + suffix
+            : Math.round(value).toLocaleString(locale) + suffix;
 
           // Mobile: no count-up animation — show the final value directly.
           if (window.innerWidth <= 768) {
@@ -56,11 +63,11 @@ export default function Stats() {
           import("animejs").then(({ animate }) => {
             const obj = { v: 0 };
             animate(obj, {
-              v: stat.value, duration: 1800, ease: "outExpo",
+              v: value, duration: 1800, ease: "outExpo",
               onUpdate: () => {
-                numEl.textContent = stat.value === 4.9
-                  ? obj.v.toFixed(1) + stat.suffix
-                  : Math.round(obj.v).toLocaleString("fr-FR") + stat.suffix;
+                numEl.textContent = value === 4.9
+                  ? obj.v.toFixed(1) + suffix
+                  : Math.round(obj.v).toLocaleString(locale) + suffix;
               },
             });
           });
@@ -80,7 +87,7 @@ export default function Stats() {
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div ref={rowRef} className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6" style={{ opacity: 1 }}>
-          {stats.map((s, i) => (
+          {items.map((s, i) => (
             <div key={i} className="flex flex-col gap-2">
               <div className="font-light text-white leading-none tracking-tight"
                 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem,5vw,4.5rem)" }}>

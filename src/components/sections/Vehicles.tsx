@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Users, Luggage } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 
@@ -20,16 +21,10 @@ function VehicleSilhouette({ type, capacity }: { type: string; capacity: string 
   );
 }
 
-const vehicles = [
-  { type: "Berline",   capacity: "4 places", luggage: "3 bagages",  comfort: "Première Classe", variant: "berline" as const,
-    desc: "Idéale pour couples et petits groupes. Confort premium pour vos circuits touristiques et transferts." },
-  { type: "Monospace",       capacity: "6 places", luggage: "6 bagages",  comfort: "Confort +",       variant: "monospace" as const,
-    desc: "Espace généreux pour familles et groupes. Parfait pour les journées tourisme accompagné en Provence." },
-  { type: "Van", capacity: "8 places", luggage: "10 bagages", comfort: "Prestige",        variant: "van" as const,
-    desc: "Capacité maximale pour grands groupes. Idéal pour circuits en délégation ou sorties entre amis." },
-];
-
 export default function Vehicles() {
+  const t = useTranslations("Vehicles");
+  const vehicles = t.raw("items") as { type: string; capacity: string; luggage: string; comfort: string; desc: string }[];
+
   const [sel, setSel] = useState(0);
   const secRef   = useRef<HTMLDivElement>(null);
   const headRef  = useRef<HTMLDivElement>(null);
@@ -72,10 +67,10 @@ export default function Vehicles() {
         <div ref={headRef} className="mb-14" style={{ opacity: 1 }}>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Flotte</span>
+            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span>
           </div>
           <h2 className="font-light leading-tight" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,5.5vw,5.5rem)", color: "var(--text-primary)" }}>
-            Votre véhicule,<br /><span style={{ color: "var(--text-secondary)" }}>votre confort.</span>
+            {t("titleLine1")}<br /><span style={{ color: "var(--text-secondary)" }}>{t("titleLine2")}</span>
           </h2>
         </div>
 
@@ -110,7 +105,7 @@ export default function Vehicles() {
             <p className="font-light leading-relaxed mb-10 text-lg" style={{ color: "var(--text-secondary)" }}>{v.desc}</p>
             <a href="#contact"
               className="inline-flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-8 py-4 text-base font-medium tracking-[0.12em] uppercase hover:bg-white transition-colors duration-300">
-              Demander un devis
+              {t("cta")}
             </a>
           </div>
         </div>

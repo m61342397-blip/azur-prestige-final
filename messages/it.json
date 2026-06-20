@@ -1,0 +1,565 @@
+{
+  "Meta": {
+    "title": "Taxi Premium Marsiglia | Transfer Aeroporto & Chauffeur Privato",
+    "homeTitle": "Azur Prestige | Taxi Premium e Tour Guidati a Marsiglia",
+    "description": "Servizio taxi premium a Marsiglia. Transfer aeroporto, viaggi d'affari, tour guidati in Provenza. Disponibile 24 ore su 24, 7 giorni su 7.",
+    "keywords": "taxi marsiglia, transfer aeroporto marsiglia, chauffeur privato marsiglia, taxi tour marsiglia",
+    "ogTitle": "Taxi Premium Marsiglia | Azur Prestige",
+    "ogDescription": "Il trasporto premium pensato per Marsiglia."
+  },
+  "Nav": {
+    "services": "Servizi",
+    "fleet": "Flotta",
+    "tourism": "Tour",
+    "quote": "Preventivo",
+    "contact": "Contatti",
+    "call": "Chiama",
+    "callDriver": "Chiama un autista",
+    "book": "Prenota",
+    "bookOnline": "Prenota online",
+    "language": "Lingua"
+  },
+  "ContactMenu": {
+    "chooseDriver": "Scegli un autista",
+    "whatsappChooseDriver": "WhatsApp — scegli un autista",
+    "driver": "Autista {number}"
+  },
+  "Hero": {
+    "eyebrow": "Tour Guidati · Marsiglia",
+    "badge": "Taxi autorizzato dallo Stato",
+    "title1": "Marsiglia.",
+    "title2": "Senza attese.",
+    "subtitle": "Il vostro autista resta al vostro fianco per tutta la giornata.\nMarsiglia, Provenza, Calanques — una scoperta completa,\ndall'inizio alla fine, al vostro ritmo.",
+    "ctaBook": "Prenota ora",
+    "ctaDiscover": "Scopri",
+    "bar": [
+      "Tour Privati · ~ 6-8 ore",
+      "Aeroporto Marseille-Provence",
+      "Stazione Saint-Charles",
+      "Taxi con licenza ufficiale dello Stato"
+    ]
+  },
+  "Ticker": {
+    "items": [
+      "Transfer Aeroporto",
+      "Chauffeur Privato",
+      "Tour Privati",
+      "Stazione Saint-Charles",
+      "Eventi VIP",
+      "Lunghe Distanze",
+      "Disponibile 24/7",
+      "Prezzo su Preventivo",
+      "Pagamento con Carta"
+    ]
+  },
+  "Stats": {
+    "items": [
+      { "suffix": "h/7", "label": "Disponibilità", "desc": "Sempre al vostro fianco" },
+      { "suffix": " anni", "label": "Di esperienza", "desc": "Un team giovane e dinamico" },
+      { "suffix": "+", "label": "Clienti serviti", "desc": "Privati e aziende" },
+      { "suffix": "/5", "label": "Valutazione media", "desc": "847 recensioni verificate" }
+    ]
+  },
+  "Services": {
+    "eyebrow": "Servizi",
+    "titleLine1": "Scoprite Marsiglia,",
+    "titleLine2": "accompagnati dall'inizio alla fine.",
+    "licenceStrong": "Taxi con licenza ufficiale dello Stato",
+    "licenceText": " — un vero taxi autorizzato, non un servizio NCC che si presenta erroneamente come «autorizzato».",
+    "items": [
+      { "subtitle": "Marsiglia · Provenza", "desc": "Il vostro autista resta al vostro fianco per tutta la giornata (~ 6-8 ore). Visite, pause pranzo, escursioni alle Calanques — un accompagnamento completo e su misura.", "tag": "La nostra specialità" },
+      { "subtitle": "MP · LYS · NCE", "desc": "Presa in carico al momento dell'atterraggio. Accoglienza personalizzata con cartello.", "tag": "Accoglienza" },
+      { "subtitle": "Saint-Charles · TGV", "desc": "Accoglienza al binario e assistenza ai bagagli. Coincidenze TGV, Intercités ed Eurostar. Puntualità garantita.", "tag": "Accoglienza" },
+      { "subtitle": "Ospedali · Cliniche · Appuntamenti", "desc": "Transfer sanitari verso ospedali, cliniche e appuntamenti. Autista premuroso, veicolo adatto, totale discrezione.", "tag": "" },
+      { "subtitle": "Business Class", "desc": "Contratto aziendale, fatturazione mensile, totale riservatezza. Autista dedicato su richiesta.", "tag": "" },
+      { "subtitle": "Matrimoni · Gala · Serate", "desc": "Servizio VIP con auto a disposizione per matrimoni, gala e serate. Flotta impeccabile, puntualità assoluta. Tariffe su preventivo in base a durata e veicolo.", "tag": "" },
+      { "subtitle": "Francia & Europa", "desc": "Parigi, Monaco, Nizza, Lione. Comfort ottimale sulle lunghe distanze. Prezzo su preventivo.", "tag": "" }
+    ]
+  },
+  "ScrollStory": {
+    "words": [
+      { "w": "PREMIUM", "sub": "Una flotta impeccabile, autisti formati." },
+      { "w": "PUNTUALE", "sub": "Monitoraggio in tempo reale. Zero ritardi." },
+      { "w": "DISCRETO", "sub": "La riservatezza prima di tutto." },
+      { "w": "MARSIGLIA", "sub": "La città come terreno di gioco." }
+    ]
+  },
+  "Vehicles": {
+    "eyebrow": "Flotta",
+    "titleLine1": "Il vostro veicolo,",
+    "titleLine2": "il vostro comfort.",
+    "cta": "Richiedi un preventivo",
+    "items": [
+      { "type": "Berlina", "capacity": "4 posti", "luggage": "3 bagagli", "comfort": "Prima Classe", "desc": "Ideale per coppie e piccoli gruppi. Comfort premium per i vostri tour e transfer." },
+      { "type": "Monovolume", "capacity": "6 posti", "luggage": "6 bagagli", "comfort": "Comfort +", "desc": "Spazio generoso per famiglie e gruppi. Perfetto per le giornate di tour guidati in Provenza." },
+      { "type": "Van", "capacity": "8 posti", "luggage": "10 bagagli", "comfort": "Prestige", "desc": "Capienza massima per grandi gruppi. Ideale per tour di gruppo o uscite tra amici." }
+    ]
+  },
+  "Calculator": {
+    "eyebrow": "Stima il tuo viaggio",
+    "titleLine1": "Il vostro viaggio,",
+    "titleLine2": "su preventivo.",
+    "intro": "Descrivete il vostro progetto — un tour, un transfer o un'auto a disposizione. Vi rispondiamo con un preventivo personalizzato, senza impegno.",
+    "departPlaceholder": "Partenza — indirizzo o luogo",
+    "destinationPlaceholder": "Destinazione",
+    "vehicleBerline": "Berlina — da 1 a 4 passeggeri",
+    "vehicleVan": "Van — da 1 a 6 passeggeri",
+    "vehicleGrandVan": "Van Grande — da 1 a 8 passeggeri",
+    "getQuote": "Richiedi un preventivo",
+    "whatsapp": "WhatsApp",
+    "popularRoutes": "Tragitti popolari",
+    "priceOnQuote": "Prezzo su preventivo"
+  },
+  "Tourism": {
+    "eyebrow": "Tour guidati",
+    "titleLine1": "Marsiglia e la Provenza,",
+    "titleLine2": "il vostro autista resta con voi.",
+    "intro": "Non un semplice transfer — un accompagnamento completo di ~ 6-8 ore. Il vostro autista vi guida, vi attende durante le visite, vi porta a pranzo e resta al vostro fianco da mattina a sera.",
+    "programLabel": "In programma",
+    "tarifLabel": "Tariffa",
+    "tarifText": "Tariffa su preventivo — contattateci direttamente su WhatsApp.",
+    "tarifNote": "Tariffa minima per 4 persone · oltre, supplemento per persona · pagamento a bordo.",
+    "cta": "Richiedi questo tour su WhatsApp",
+    "circuits": [
+      {
+        "name": "Tour Marsiglia Essenziale",
+        "subtitle": "6 monumenti · ~ 2h-2h30",
+        "desc": "Scoprite il cuore storico di Marsiglia. Dal Palais du Pharo con la sua vista impareggiabile sulla rada, fino al vivace Vieux-Port, passando per Notre-Dame de la Garde e la Cathédrale de la Major.",
+        "monuments": [
+          "Palais du Pharo — vista panoramica sulla rada",
+          "Monument aux Morts — vista sulle isole del Frioul e sul Château d'If (Il Conte di Montecristo)",
+          "Notre-Dame de la Garde",
+          "Cathédrale de la Major",
+          "Quartiere del Panier",
+          "Vieux-Port"
+        ],
+        "duration": "~ 2h-2h30",
+        "whatsapp": "Buongiorno, vorrei prenotare il Tour Marsiglia Essenziale (6 monumenti)."
+      },
+      {
+        "name": "Tour Marsiglia Completo",
+        "subtitle": "8 monumenti · ~ 3h-3h30",
+        "desc": "Il tour Essenziale arricchito con due gioielli in più: l'Abbaye Saint-Victor, una delle chiese più antiche di Francia, e il maestoso Palais Longchamp.",
+        "monuments": [
+          "Palais du Pharo",
+          "Monument aux Morts — vista isole del Frioul e Château d'If (Il Conte di Montecristo)",
+          "Notre-Dame de la Garde",
+          "Cathédrale de la Major",
+          "Quartiere del Panier",
+          "Vieux-Port",
+          "Abbaye Saint-Victor",
+          "Palais Longchamp"
+        ],
+        "duration": "~ 3h-3h30",
+        "whatsapp": "Buongiorno, vorrei prenotare il Tour Marsiglia Completo (8 monumenti)."
+      },
+      {
+        "name": "Tour Cassis",
+        "subtitle": "Porto & Falesie · ~ 4h-5h",
+        "desc": "Rotta verso Cassis. Scoprite il pittoresco porto di Cassis e la vista su Cap Canaille — la falesia marittima più alta d'Europa, che raggiunge ~ 400 metri.",
+        "monuments": [
+          "Porto di Cassis",
+          "Cap Canaille — ~ 400m, la falesia marittima più alta d'Europa",
+          "Calanques viste dal porto"
+        ],
+        "duration": "~ 4h-5h",
+        "whatsapp": "Buongiorno, vorrei prenotare il Tour Cassis (4h-5h)."
+      },
+      {
+        "name": "Tour Cassis + Aix",
+        "subtitle": "Giornata intera · ~ 6h-7h",
+        "desc": "La giornata ideale: Aix-en-Provence al mattino con i suoi mercati provenzali e le sue fontane, poi Cassis nel pomeriggio con il suo porto e la vertiginosa vista su Cap Canaille (~ 400m). Pausa pranzo inclusa.",
+        "monuments": [
+          "Cours Mirabeau — Aix-en-Provence",
+          "Mercati e fontane provenzali",
+          "Porto di Cassis",
+          "Cap Canaille — falesia ~ 400m"
+        ],
+        "duration": "~ 6h-7h · pausa pranzo inclusa",
+        "whatsapp": "Buongiorno, vorrei prenotare il Tour Cassis + Aix (giornata intera)."
+      },
+      {
+        "name": "Tour Valensole",
+        "subtitle": "Campi di Lavanda · ~ 6h",
+        "desc": "Evadete nel cuore della Provenza autentica. I campi di lavanda a perdita d'occhio di Valensole offrono uno spettacolo indimenticabile. ~ 4h sul posto per passeggiare, fotografare e respirare la Provenza.",
+        "monuments": [
+          "Altopiano di Valensole",
+          "Campi di lavanda a perdita d'occhio",
+          "Villaggi provenzali",
+          "Panorami eccezionali"
+        ],
+        "duration": "~ 6h totali · ~ 4h sul posto",
+        "whatsapp": "Buongiorno, vorrei prenotare il Tour Valensole (campi di lavanda)."
+      }
+    ]
+  },
+  "Process": {
+    "eyebrow": "Come funziona",
+    "titleLine1": "Semplice,",
+    "titleLine2": "rapido, affidabile.",
+    "steps": ["Prenotazione", "Conferma", "Presa in carico", "Arrivo"]
+  },
+  "Testimonials": {
+    "eyebrow": "Recensioni clienti",
+    "titleLine1": "Si affidano",
+    "titleLine2": "a noi.",
+    "emptyText": "Nessuna recensione al momento.\nSiate i primi a condividere la vostra esperienza.",
+    "leaveReview": "Lascia una recensione",
+    "verifiedClient": "Cliente verificato"
+  },
+  "ClientPhotos": {
+    "eyebrow": "Foto dei clienti",
+    "titleLine1": "Hanno vissuto",
+    "titleLine2": "l'esperienza.",
+    "intro": "Foto in arrivo — i nostri clienti condividono i loro ricordi di Provenza."
+  },
+  "ReservationCTA": {
+    "titleLine1": "Pronti a partire?",
+    "titleLine2": "Prenota ora.",
+    "bookOnline": "Prenota online",
+    "call": "Chiama",
+    "whatsapp": "WhatsApp",
+    "tags": ["Conferma immediata", "Tariffa fissa garantita", "Autista professionista", "24/7"]
+  },
+  "Contact": {
+    "eyebrow": "Contatti",
+    "titleLine1": "Parliamo del",
+    "titleLine2": "vostro viaggio.",
+    "labelPhone": "Telefono",
+    "labelWhatsapp": "WhatsApp",
+    "labelEmail": "Email",
+    "labelHours": "Orari",
+    "subPhone": "2 autisti · risposta immediata",
+    "subWhatsapp": "7 giorni su 7, risposta rapida",
+    "subEmail": "Risposta entro 2h",
+    "subHours": "365 giorni all'anno",
+    "hoursValue": "24/7",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "phone": "Telefono",
+    "email": "Email",
+    "trip": "Tragitto o richiesta",
+    "message": "Messaggio o informazioni aggiuntive",
+    "send": "Chiama un autista"
+  },
+  "Footer": {
+    "tagline": "Tour guidati a Marsiglia e in Provenza. Transfer aeroporto e stazione, tour su misura. Disponibile 24/7, 365 giorni all'anno.",
+    "licence": "Taxi con licenza ufficiale dello Stato",
+    "servicesTitle": "Servizi",
+    "infoTitle": "Informazioni",
+    "services": ["Tour Guidati", "Transfer Aeroporto", "Accoglienza Stazione", "Trasporto Sanitario", "Eventi", "Lunga Distanza"],
+    "info": ["FAQ", "I nostri veicoli", "Preventivo", "Lascia una recensione", "Contatti"],
+    "legal": ["Note legali", "Privacy", "Termini e condizioni"],
+    "copyright": "Azur Prestige Taxi Marseille · SIRET 989 229 604 00016"
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "titleLine1": "Domande",
+    "titleLine2": "frequenti.",
+    "items": [
+      { "q": "Come si prenota un taxi a Marsiglia?", "a": "Per telefono, WhatsApp o tramite il modulo online. Conferma immediata via SMS con nome e numero dell'autista." },
+      { "q": "Quali sono le tariffe per l'aeroporto?", "a": "Tariffa fissa dall'aeroporto Marseille-Provence: 65€ verso il centro città." },
+      { "q": "Siete disponibili di notte e nei weekend?", "a": "Sì, 24 ore su 24, 7 giorni su 7 e 365 giorni all'anno. Le nostre tariffe non cambiano in base all'ora o al giorno." },
+      { "q": "Offrite contratti aziendali?", "a": "Sì — fatturazione mensile, autista dedicato su richiesta, reportistica delle corse. Contattateci per un preventivo." },
+      { "q": "Posso prenotare per un gruppo?", "a": "Sì, il nostro Van (6 passeggeri) e il Van Grande (8 passeggeri) sono disponibili per gruppi, con ampio spazio per i bagagli." }
+    ]
+  },
+  "CGV": {
+    "metaTitle": "Condizioni Generali di Vendita | Azur Prestige Taxi Marseille",
+    "metaDescription": "Condizioni generali di vendita del servizio taxi premium Azur Prestige a Marsiglia.",
+    "eyebrow": "Note legali",
+    "title": "Condizioni generali\ndi vendita",
+    "lastUpdate": "Ultimo aggiornamento: giugno 2025",
+    "privacyLabel": "Informativa sulla privacy",
+    "sections": [
+      { "title": "1. Oggetto", "blocks": [
+        "Le presenti Condizioni Generali di Vendita (CGV) disciplinano tutte le prestazioni di trasporto di persone effettuate da Azur Prestige Taxi Marseille (di seguito «il Prestatore») per qualsiasi cliente privato o professionale (di seguito «il Cliente»).",
+        "Ogni prenotazione implica l'accettazione piena e integrale delle presenti CGV."
+      ]},
+      { "title": "2. Servizi offerti", "blocks": [
+        "Il Prestatore offre i seguenti servizi:",
+        { "type": "ul", "items": [
+          "Transfer aeroporto / stazione (Marseille-Provence, Stazione Saint-Charles e altri)",
+          "Spostamenti professionali occasionali o sotto contratto",
+          "Tour turistici in PACA (Calanques, Cassis, Aix-en-Provence, ecc.)",
+          "Auto con autista a disposizione (eventi, matrimoni, serate)",
+          "Transfer a lunga distanza (Francia ed Europa)"
+        ]}
+      ]},
+      { "title": "3. Prenotazione", "blocks": [
+        "La prenotazione può essere effettuata per telefono, WhatsApp o tramite il modulo online. Viene confermata con l'invio di un SMS o di un'email riepilogativa indicante: data, ora, luogo di presa in carico, destinazione e tariffa concordata.",
+        "La prenotazione è definitiva dalla conferma scritta (SMS o email) da parte del Prestatore."
+      ]},
+      { "title": "4. Tariffe", "blocks": [
+        "Le tariffe sono fissate in anticipo e comunicate al Cliente prima di ogni prenotazione. I prezzi sono indicati in euro, IVA inclusa.",
+        "Principi tariffari:",
+        { "type": "ul", "items": [
+          "Tariffe fisse: nessun tassametro, nessuna sorpresa a fine corsa",
+          "Nessun supplemento notturno, festivo o del fine settimana non annunciato",
+          "Supplemento per bagagli ingombranti o animali su richiesta preventiva",
+          "Pedaggi e parcheggi inclusi salvo diversa indicazione"
+        ]}
+      ]},
+      { "title": "5. Pagamento", "blocks": [
+        "Il pagamento può essere effettuato:",
+        { "type": "ul", "items": [
+          "In contanti, al termine della corsa",
+          "Con carta (bancomat, Visa, Mastercard)",
+          "Tramite bonifico bancario per i clienti sotto contratto (fatturazione mensile)"
+        ]},
+        "Può essere richiesto un acconto per le corse a lunga distanza o le messe a disposizione di lunga durata."
+      ]},
+      { "title": "6. Annullamento e modifica", "blocks": [
+        { "type": "rows", "rows": [
+          { "label": "Annullamento > 24h prima", "value": "Gratuito, nessuna penale" },
+          { "label": "Annullamento tra 12h e 24h", "value": "30% della tariffa della corsa" },
+          { "label": "Annullamento tra 2h e 12h", "value": "50% della tariffa della corsa" },
+          { "label": "Annullamento < 2h o no-show", "value": "100% della tariffa della corsa" },
+          { "label": "Modifica di orario", "value": "Gratuita salvo disponibilità" }
+        ]},
+        "In caso di circostanze eccezionali (forza maggiore, incidente, problema medico), le condizioni di annullamento sono valutate caso per caso."
+      ]},
+      { "title": "7. Obblighi del Prestatore", "blocks": [
+        { "type": "ul", "items": [
+          "Essere presente all'ora e nel luogo concordati",
+          "Guidare con prudenza nel rispetto del codice della strada",
+          "Mantenere i veicoli in perfetto stato di pulizia e funzionamento",
+          "Garantire la riservatezza degli spostamenti del Cliente",
+          "Possedere le licenze, le assicurazioni e le abilitazioni previste dalla normativa"
+        ]}
+      ]},
+      { "title": "8. Obblighi del Cliente", "blocks": [
+        { "type": "ul", "items": [
+          "Essere presente nel luogo e all'ora concordati (tolleranza di 15 minuti oltre i quali la corsa potrà essere considerata un no-show)",
+          "Indicare con precisione gli indirizzi di partenza e di destinazione",
+          "Non fumare a bordo dei veicoli",
+          "Rispettare il veicolo e l'autista",
+          "Segnalare qualsiasi esigenza particolare (seggiolino, sedia a rotelle, ecc.) al momento della prenotazione"
+        ]}
+      ]},
+      { "title": "9. Responsabilità", "blocks": [
+        "Il Prestatore è coperto da un'assicurazione di responsabilità civile professionale. La sua responsabilità è limitata ai danni fisici e materiali direttamente causati da una colpa comprovata del Prestatore.",
+        "Il Prestatore non può essere ritenuto responsabile dei ritardi causati da condizioni di traffico imprevedibili, lavori, incidenti o qualsiasi altro evento di forza maggiore. In caso di rischio di ritardo importante, il Cliente ne sarà informato il prima possibile."
+      ]},
+      { "title": "10. Controversie e legge applicabile", "blocks": [
+        "In caso di controversia, si cercherà in via prioritaria una soluzione amichevole. In mancanza di accordo, il Cliente può rivolgersi a un mediatore del consumo conformemente agli articoli L.611-1 e seguenti del Codice del consumo francese.",
+        "Le presenti CGV sono soggette al diritto francese. In mancanza di risoluzione amichevole, il tribunale competente sarà quello di Marsiglia."
+      ]}
+    ]
+  },
+  "Confidentialite": {
+    "metaTitle": "Informativa sulla Privacy | Azur Prestige Taxi Marseille",
+    "metaDescription": "Informativa sulla privacy e protezione dei dati personali — Azur Prestige Taxi Marseille.",
+    "eyebrow": "Note legali",
+    "title": "Informativa sulla\nprivacy",
+    "lastUpdate": "Ultimo aggiornamento: giugno 2025",
+    "privacyLabel": "Informativa sulla privacy",
+    "sections": [
+      { "title": "1. Titolare del trattamento", "blocks": [
+        "Il titolare del trattamento dei dati personali raccolti tramite questo sito è: Azur Prestige Taxi Marseille — contact@azurprestige.fr"
+      ]},
+      { "title": "2. Dati raccolti", "blocks": [
+        "Raccogliamo i seguenti dati solo quando ce li fornite volontariamente:",
+        { "type": "ul", "items": [
+          "Nome e cognome (modulo di contatto / prenotazione)",
+          "Numero di telefono",
+          "Indirizzo email",
+          "Indirizzo di partenza e di destinazione",
+          "Data e ora desiderate"
+        ]},
+        "Non raccogliamo alcun dato sensibile (bancario, sanitario, ecc.) tramite questo sito. I pagamenti sono elaborati in modo sicuro durante la corsa."
+      ]},
+      { "title": "3. Finalità e base giuridica", "blocks": [
+        "I vostri dati sono utilizzati esclusivamente per:",
+        { "type": "ul", "items": [
+          "Rispondere alle vostre richieste di preventivo o prenotazione (esecuzione di un contratto)",
+          "Inviarvi una conferma di corsa via SMS (interesse legittimo)",
+          "Migliorare il nostro servizio (interesse legittimo)"
+        ]},
+        "Non utilizziamo mai i vostri dati a fini pubblicitari e non li rivendiamo in alcun caso a terzi."
+      ]},
+      { "title": "4. Periodo di conservazione", "blocks": [
+        "I vostri dati sono conservati per il tempo necessario alla realizzazione della prestazione, poi archiviati per 3 anni a fini di gestione clienti, conformemente alla normativa fiscale francese. Vengono poi eliminati definitivamente."
+      ]},
+      { "title": "5. Condivisione dei dati", "blocks": [
+        "I vostri dati non sono mai venduti, noleggiati o condivisi con terzi a fini commerciali. Possono essere trasmessi unicamente ai nostri responsabili tecnici (host Vercel, servizio di invio SMS) nel rigoroso ambito dell'esecuzione del servizio, soggetti agli stessi obblighi di riservatezza."
+      ]},
+      { "title": "6. Cookie", "blocks": [
+        "Questo sito non utilizza cookie pubblicitari né di tracciamento analitico. Possono essere depositati solo cookie tecnici strettamente necessari al funzionamento del sito. Questi cookie non raccolgono alcun dato personale."
+      ]},
+      { "title": "7. I vostri diritti (GDPR)", "blocks": [
+        "Conformemente al Regolamento Generale sulla Protezione dei Dati (GDPR), disponete dei seguenti diritti:",
+        { "type": "ul", "items": [
+          "Diritto di accesso ai vostri dati",
+          "Diritto di rettifica",
+          "Diritto alla cancellazione («diritto all'oblio»)",
+          "Diritto alla limitazione del trattamento",
+          "Diritto alla portabilità",
+          "Diritto di opposizione"
+        ]},
+        "Per esercitare questi diritti, contattateci via email a {email} o per posta al nostro indirizzo. Ci impegniamo a rispondere entro un mese.",
+        "In caso di reclamo, potete rivolgervi alla CNIL: {cnil}"
+      ]},
+      { "title": "8. Sicurezza", "blocks": [
+        "Adottiamo le misure tecniche e organizzative appropriate per proteggere i vostri dati da qualsiasi accesso non autorizzato, perdita, distruzione o alterazione. Il sito è servito esclusivamente in HTTPS."
+      ]},
+      { "title": "9. Modifiche", "blocks": [
+        "Ci riserviamo il diritto di modificare questa informativa in qualsiasi momento. La data di aggiornamento è indicata in cima a questa pagina. Vi invitiamo a consultarla regolarmente."
+      ]}
+    ]
+  },
+  "MentionsLegales": {
+    "metaTitle": "Note Legali | Azur Prestige Taxi Marseille",
+    "metaDescription": "Note legali del servizio taxi premium Azur Prestige a Marsiglia.",
+    "eyebrow": "Note legali",
+    "title": "Note legali",
+    "lastUpdate": "Ultimo aggiornamento: giugno 2025",
+    "privacyLabel": "Informativa sulla privacy",
+    "sections": [
+      { "title": "1. Editore del sito", "blocks": [
+        "Il presente sito è edito da:",
+        { "type": "rows", "rows": [
+          { "label": "Ragione sociale", "value": "Azur Prestige Taxi Marseille" },
+          { "label": "Forma giuridica", "value": "Auto-entrepreneur / Micro-entreprise" },
+          { "label": "SIRET", "value": "989 229 604 00016" },
+          { "label": "Numero di licenza professionale", "value": "01325515101" },
+          { "label": "Indirizzo", "value": "Marsiglia, Bouches-du-Rhône (13), Francia" },
+          { "label": "Telefono", "value": "+33 6 66 32 38 17" },
+          { "label": "Email", "value": "contact@azurprestige.fr" }
+        ]}
+      ]},
+      { "title": "2. Direttore della pubblicazione", "blocks": [
+        "Il direttore della pubblicazione è il titolare della società Azur Prestige Taxi Marseille."
+      ]},
+      { "title": "3. Hosting", "blocks": [
+        { "type": "rows", "rows": [
+          { "label": "Host", "value": "Vercel Inc." },
+          { "label": "Indirizzo", "value": "340 S Lemon Ave #4133, Walnut, CA 91789, Stati Uniti" },
+          { "label": "Sito web", "value": "vercel.com" }
+        ]}
+      ]},
+      { "title": "4. Proprietà intellettuale", "blocks": [
+        "L'intero contenuto del presente sito (testi, immagini, grafiche, logo, icone, ecc.) è proprietà esclusiva di Azur Prestige Taxi Marseille, ad eccezione dei contenuti di terzi identificati come tali.",
+        "Qualsiasi riproduzione, distribuzione, modifica, adattamento, ritrasmissione o pubblicazione di questi elementi è severamente vietata senza il consenso scritto espresso di Azur Prestige Taxi Marseille."
+      ]},
+      { "title": "5. Limitazione di responsabilità", "blocks": [
+        "Azur Prestige Taxi Marseille si impegna a garantire l'esattezza e l'aggiornamento delle informazioni diffuse su questo sito, di cui si riserva il diritto di correggere il contenuto in qualsiasi momento e senza preavviso.",
+        "Azur Prestige Taxi Marseille declina ogni responsabilità riguardo a eventuali errori o omissioni nelle informazioni fornite su questo sito."
+      ]},
+      { "title": "6. Dati personali", "blocks": [
+        "La raccolta e il trattamento dei dati personali sono descritti nella nostra {privacy}."
+      ]},
+      { "title": "7. Cookie", "blocks": [
+        "Questo sito utilizza solo cookie tecnici necessari al suo funzionamento. Nessun cookie pubblicitario o di tracciamento viene depositato senza il vostro consenso."
+      ]},
+      { "title": "8. Legge applicabile", "blocks": [
+        "Le presenti note legali sono soggette al diritto francese. In caso di controversia, i tribunali competenti saranno quelli di Marsiglia."
+      ]}
+    ]
+  },
+  "Reservation": {
+    "metaTitle": "Prenotazione online | Azur Prestige Taxi Marseille",
+    "metaDescription": "Prenota online il tuo taxi premium a Marsiglia. Conferma via email entro 30 minuti, pagamento a bordo.",
+    "eyebrow": "Prenotazione online",
+    "titleLine1": "Prenota il tuo",
+    "titleLine2": "taxi online.",
+    "intro": "Conferma via email entro 30 minuti. Pagamento a bordo con l'autista.",
+    "step1": "Dati",
+    "step2": "Tragitto",
+    "step3": "Conferma",
+    "step1Title": "I vostri dati",
+    "step2Title": "Il vostro tragitto",
+    "step3Title": "Riepilogo",
+    "firstName": "Nome *",
+    "lastName": "Cognome *",
+    "phone": "Telefono *",
+    "email": "Email *",
+    "date": "Data *",
+    "time": "Ora *",
+    "from": "Partenza *",
+    "to": "Destinazione *",
+    "fromPlaceholder": "Es.: Aeroporto Marseille-Provence, Terminal 1",
+    "toPlaceholder": "Es.: 10 rue de la République, Marsiglia",
+    "passengers": "Passeggeri",
+    "luggage": "Bagagli",
+    "vehicle": "Veicolo",
+    "messageLabel": "Messaggio (facoltativo)",
+    "messagePlaceholder": "Seggiolino, numero di volo, istruzioni...",
+    "vehicles": { "berline": "Berlina", "van": "Van", "grandvan": "Van Grande" },
+    "recapName": "Nome",
+    "recapPhone": "Telefono",
+    "recapEmail": "Email",
+    "recapDate": "Data",
+    "recapTime": "Ora",
+    "recapFrom": "Partenza",
+    "recapTo": "Destinazione",
+    "recapVehicle": "Veicolo",
+    "recapPassengers": "Passeggeri",
+    "recapLuggage": "Bagagli",
+    "recapMessage": "Messaggio",
+    "paymentNote": "<gold>Pagamento a bordo</gold> — contanti o carta con l'autista. Annullamento gratuito fino a 24h prima.",
+    "back": "← Indietro",
+    "backHomeShort": "← Home",
+    "continue": "Continua",
+    "confirm": "Conferma",
+    "sending": "Invio...",
+    "minFare": "<gold>Tariffa minima per 4 persone</gold> — oltre, supplemento per persona.",
+    "guarantees": ["Conferma entro 30 min", "Pagamento a bordo", "Annullamento gratuito 24h prima"],
+    "successTitle": "Prenotazione inviata!",
+    "reference": "Riferimento:",
+    "successEmail": "Un'email di conferma è stata inviata a <email></email>.",
+    "successDelay": "Confermiamo la presa in carico entro 30 minuti.",
+    "callUs": "Chiamaci",
+    "errorUnknown": "Errore sconosciuto",
+    "errorGeneric": "Errore. Chiamateci direttamente."
+  },
+  "LaisserUnAvis": {
+    "metaTitle": "Lascia una recensione | Azur Prestige Taxi Marseille",
+    "metaDescription": "Condividi la tua esperienza con Azur Prestige, taxi premium a Marsiglia.",
+    "eyebrow": "La vostra esperienza",
+    "titleLine1": "Lasciate",
+    "titleLine2": "la vostra recensione.",
+    "intro": "Condividete la vostra esperienza con Azur Prestige. La vostra recensione sarà pubblicata dopo la moderazione.",
+    "nameLabel": "Il vostro nome *",
+    "namePlaceholder": "Mario R.",
+    "ratingLabel": "Il vostro voto *",
+    "commentLabel": "Il vostro commento *",
+    "commentPlaceholder": "Raccontate la vostra esperienza...",
+    "starAria": "{count, plural, one {# stella} other {# stelle}}",
+    "submit": "Pubblica la mia recensione",
+    "sending": "Invio...",
+    "successTitle": "Grazie per la vostra recensione!",
+    "successText": "La vostra recensione è stata registrata.\nSarà pubblicata dopo la moderazione da parte del nostro team.",
+    "backHome": "← Torna alla home",
+    "errorUnknown": "Errore sconosciuto",
+    "errorGeneric": "Si è verificato un errore."
+  },
+  "EmailTemplates": {
+    "subjectClient": "La tua prenotazione Azur Prestige — {date} alle {time}",
+    "footerTagline": "Disponibile 24/7 · Marsiglia e regione PACA",
+    "vehicles": { "berline": "Berlina", "van": "Van", "grandvan": "Van Grande" },
+    "client": {
+      "eyebrow": "Conferma di prenotazione",
+      "greeting": "Buongiorno {prenom},",
+      "intro": "Abbiamo ricevuto la tua richiesta. Confermiamo la presa in carico entro 30 minuti.",
+      "referenceLabel": "Riferimento",
+      "recapHeader": "Dettagli della tua corsa",
+      "labelDate": "Data",
+      "labelPickupTime": "Ora di presa in carico",
+      "labelFrom": "Partenza",
+      "labelTo": "Destinazione",
+      "labelVehicle": "Veicolo",
+      "labelPassengers": "Passeggeri",
+      "labelLuggage": "Bagagli",
+      "labelMessage": "Messaggio",
+      "paymentStrong": "Pagamento a bordo",
+      "paymentText": " — direttamente con l'autista, in contanti o con carta. Nessun pagamento anticipato richiesto.",
+      "ctaContact": "Contattaci",
+      "ctaWhatsapp": "WhatsApp",
+      "statAvailability": "Disponibilità",
+      "statRating": "Voto clienti",
+      "statCancellation": "Annullamento 24h",
+      "statCancellationValue": "Gratuito"
+    }
+  }
+}

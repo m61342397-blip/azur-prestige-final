@@ -2,17 +2,22 @@
 
 import { useRef, useEffect } from "react";
 import { Phone, Mail, MessageCircle, Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { engine, Engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
 
-const channels = [
-  { icon: Phone,         label: "Téléphone",  values: ["+33 6 66 32 38 17", "+33 6 22 84 52 40"], sub: "2 chauffeurs · réponse immédiate" },
-  { icon: MessageCircle, label: "WhatsApp",   values: ["+33 6 66 32 38 17", "+33 6 22 84 52 40"], sub: "7j/7, réponse rapide" },
-  { icon: Mail,          label: "Email",      values: ["contact@azurprestige.fr"],                sub: "Réponse sous 2h" },
-  { icon: Clock,         label: "Horaires",   values: ["24h / 7j"],                               sub: "365 jours par an" },
-];
+// Numéros (jamais traduits).
+const PHONES = ["+33 6 66 32 38 17", "+33 6 22 84 52 40"];
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+  const channels = [
+    { icon: Phone,         label: t("labelPhone"),    values: PHONES,                       sub: t("subPhone") },
+    { icon: MessageCircle, label: t("labelWhatsapp"), values: PHONES,                       sub: t("subWhatsapp") },
+    { icon: Mail,          label: t("labelEmail"),    values: ["contact@azurprestige.fr"],  sub: t("subEmail") },
+    { icon: Clock,         label: t("labelHours"),    values: [t("hoursValue")],            sub: t("subHours") },
+  ];
+
   const secRef    = useRef<HTMLDivElement>(null);
   const headRef   = useRef<HTMLDivElement>(null);
   const cardsRef  = useRef<HTMLDivElement[]>([]);
@@ -46,9 +51,9 @@ export default function Contact() {
     <section id="contact" ref={secRef} className="py-24 lg:py-36 border-t border-white/[0.04]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div ref={headRef} className="mb-16" style={{ opacity: 1 }}>
-          <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Contact</span></div>
+          <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span></div>
           <h2 className="font-light leading-tight" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem,5vw,5rem)", color: "var(--text-primary)" }}>
-            Parlons de<br /><span style={{ color: "var(--text-secondary)" }}>votre trajet.</span>
+            {t("titleLine1")}<br /><span style={{ color: "var(--text-secondary)" }}>{t("titleLine2")}</span>
           </h2>
         </div>
 
@@ -87,19 +92,19 @@ export default function Contact() {
             }}>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <input className={input} placeholder="Prénom" />
-                <input className={input} placeholder="Nom" />
+                <input className={input} placeholder={t("firstName")} />
+                <input className={input} placeholder={t("lastName")} />
               </div>
-              <input className={input} placeholder="Téléphone" type="tel" />
-              <input className={input} placeholder="Email" type="email" />
-              <input className={input} placeholder="Trajet ou demande" />
-              <textarea className={input + " resize-none"} rows={4} placeholder="Message ou informations complémentaires" />
+              <input className={input} placeholder={t("phone")} type="tel" />
+              <input className={input} placeholder={t("email")} type="email" />
+              <input className={input} placeholder={t("trip")} />
+              <textarea className={input + " resize-none"} rows={4} placeholder={t("message")} />
               <ContactChoice
                 mode="call"
                 align="center"
                 wrapperClassName="relative w-full"
                 className="flex items-center justify-center gap-3 w-full bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
-                trigger={<>Appeler un chauffeur</>}
+                trigger={<>{t("send")}</>}
               />
             </div>
           </div>

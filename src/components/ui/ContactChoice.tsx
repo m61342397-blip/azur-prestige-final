@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import { Phone, MessageCircle, type LucideIcon } from "lucide-react";
 import { DRIVERS, type Driver } from "@/lib/drivers";
 
@@ -119,6 +120,7 @@ export default function ContactChoice({
     };
   }, [open]);
 
+  const tr = useTranslations("ContactMenu");
   const Icon: LucideIcon = mode === "whatsapp" ? MessageCircle : Phone;
 
   const hrefFor = (d: Driver) =>
@@ -138,10 +140,10 @@ export default function ContactChoice({
             surchargerait sinon les utilitaires Tailwind et teinterait ce texte
             en sombre sur le thème clair des circuits — popup illisible. */}
         <span className="text-[9px] tracking-[0.3em] uppercase font-light" style={{ color: "#D4AF37" }}>
-          {mode === "whatsapp" ? "WhatsApp — choisir un chauffeur" : "Choisir un chauffeur"}
+          {mode === "whatsapp" ? tr("whatsappChooseDriver") : tr("chooseDriver")}
         </span>
       </div>
-      {DRIVERS.map((d) => (
+      {DRIVERS.map((d, i) => (
         <a
           key={d.tel}
           href={hrefFor(d)}
@@ -155,7 +157,7 @@ export default function ContactChoice({
           </span>
           <span className="flex flex-col text-left">
             <span className="text-[10px] tracking-[0.2em] uppercase font-light" style={{ color: "#E5E5E5" }}>
-              {d.name}
+              {tr("driver", { number: i + 1 })}
             </span>
             <span className="text-sm font-light" style={{ color: "#ffffff" }}>{d.display}</span>
           </span>

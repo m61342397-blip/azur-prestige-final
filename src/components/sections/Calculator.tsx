@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { MapPin, ArrowRight, Phone } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
@@ -15,6 +16,7 @@ const popularRoutes = [
 ];
 
 export default function Calculator() {
+  const t = useTranslations("Calculator");
   const secRef   = useRef<HTMLDivElement>(null);
   const leftRef  = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
@@ -51,33 +53,32 @@ export default function Calculator() {
           <div ref={leftRef} style={{ opacity: 1 }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-[#D4AF37]" />
-              <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Estimez votre trajet</span>
+              <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span>
             </div>
             <h2 className="font-light leading-tight mb-6" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,4.5vw,5rem)", color: "var(--text-primary)" }}>
-              Votre trajet,<br /><span style={{ color: "var(--text-secondary)" }}>sur devis.</span>
+              {t("titleLine1")}<br /><span style={{ color: "var(--text-secondary)" }}>{t("titleLine2")}</span>
             </h2>
             <p className="font-light leading-relaxed mb-12 text-base" style={{ color: "var(--text-secondary)" }}>
-              Décrivez votre projet — circuit touristique, transfert ou mise à disposition.
-              Nous vous répondons avec un devis personnalisé, sans engagement.
+              {t("intro")}
             </p>
 
             {/* Form */}
             <div className="space-y-4 mb-8">
               <div className="relative">
                 <MapPin size={13} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#D4AF37]" />
-                <input className={input + " pl-10"} placeholder="Départ — adresse ou lieu"
+                <input className={input + " pl-10"} placeholder={t("departPlaceholder")}
                   value={from} onChange={e => setFrom(e.target.value)} />
               </div>
               <div className="relative">
                 <MapPin size={13} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#D4AF37]/50" />
-                <input className={input + " pl-10"} placeholder="Destination"
+                <input className={input + " pl-10"} placeholder={t("destinationPlaceholder")}
                   value={to} onChange={e => setTo(e.target.value)} />
               </div>
               <select className={input + " cursor-pointer"} value={vehicle} onChange={e => setVehicle(e.target.value)}
                 style={{ background: "transparent" }}>
-                <option value="berline">Berline — 1 à 4 passagers</option>
-                <option value="van">Van — 1 à 6 passagers</option>
-                <option value="grandvan">Grand Van — 1 à 8 passagers</option>
+                <option value="berline">{t("vehicleBerline")}</option>
+                <option value="van">{t("vehicleVan")}</option>
+                <option value="grandvan">{t("vehicleGrandVan")}</option>
               </select>
             </div>
 
@@ -87,20 +88,20 @@ export default function Calculator() {
                 align="left"
                 wrapperClassName="relative flex-1"
                 className="w-full flex items-center justify-center gap-2 bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors duration-300"
-                trigger={<><Phone size={14} /> Obtenir un devis</>}
+                trigger={<><Phone size={14} /> {t("getQuote")}</>}
               />
               <ContactChoice
                 mode="whatsapp"
                 align="right"
                 className="border border-white/[0.08] text-[#8A8A8A] px-6 py-4 text-sm font-light hover:border-[#D4AF37]/40 hover:text-[#D4AF37] transition-all duration-300"
-                trigger={<>WhatsApp</>}
+                trigger={<>{t("whatsapp")}</>}
               />
             </div>
           </div>
 
           {/* Right — popular routes */}
           <div ref={rightRef} style={{ opacity: 1 }}>
-            <div className="text-[#707070] text-[10px] tracking-[0.35em] uppercase font-light mb-6">Trajets populaires</div>
+            <div className="text-[#707070] text-[10px] tracking-[0.35em] uppercase font-light mb-6">{t("popularRoutes")}</div>
             <div className="space-y-px">
               {popularRoutes.map((r, i) => (
                 <div key={i}
@@ -120,7 +121,7 @@ export default function Calculator() {
                   <div className="flex items-center gap-4 shrink-0">
                     <div className="text-right">
                       <div className="text-[#D4AF37] text-base font-light tracking-wide">
-                        Prix sur devis
+                        {t("priceOnQuote")}
                       </div>
                       <div className="text-[#A1A1AA] text-[11px] tracking-wide">{r.time}</div>
                     </div>

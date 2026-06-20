@@ -1,28 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { Phone, Menu, X } from "lucide-react";
 import { engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const links = [
-  { label: "Services",   href: "#services"    },
-  { label: "Flotte",     href: "#vehicules"   },
-  { label: "Tourisme",   href: "#tourisme"    },
-  { label: "Devis",      href: "#calculateur" },
-  { label: "Contact",    href: "#contact"     },
-];
+  { key: "services", href: "#services"    },
+  { key: "fleet",    href: "#vehicules"   },
+  { key: "tourism",  href: "#tourisme"    },
+  { key: "quote",    href: "#calculateur" },
+  { key: "contact",  href: "#contact"     },
+] as const;
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const t = useTranslations("Nav");
+  const locale = useLocale();
+  const pathname = usePathname(); // sans préfixe de langue ; "/" sur l'accueil
 
-  // Hors page d'accueil, les ancres (#section) sont préfixées en /#section pour
-  // revenir sur la home puis scroller vers la bonne section (scroll géré par
-  // SmoothScroll). Sur la home, on garde l'ancre directe. Identique à Footer.tsx.
-  const resolve = (href: string) =>
-    href.startsWith("#") && pathname !== "/" ? `/${href}` : href;
+  // Hors page d'accueil, les ancres (#section) doivent renvoyer vers l'accueil
+  // DE LA LANGUE COURANTE puis scroller (scroll géré par SmoothScroll au
+  // chargement). Sur l'accueil, on garde l'ancre directe (smooth scroll Lenis).
+  const prefix = locale === "fr" ? "" : `/${locale}`;
+  const anchorHref = (href: string) => {
+    if (pathname === "/") return href;
+    const homePath = prefix === "" ? "/" : prefix;
+    return `${homePath}${href}`;
+  };
 
   const navRef  = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLSpanElement>(null);
@@ -84,40 +92,43 @@ export default function Navigation() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <div ref={dotRef} className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] transition-opacity duration-300" style={{ opacity: 0.5 }} />
             <span ref={logoRef} className="text-[11px] font-light uppercase transition-all duration-300"
               style={{ letterSpacing: "0.35em", fontFamily: "var(--font-serif)", color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
               Azur Prestige
             </span>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map((l) => (
-              <a key={l.href} href={resolve(l.href)}
+              <a key={l.href} href={anchorHref(l.href)}
                 className="text-[11px] font-light uppercase tracking-[0.2em] transition-colors duration-300 hover:opacity-70"
                 style={{ color: "var(--nav-link-color, #A1A1AA)" }}>
-                {l.label}
+                {t(l.key)}
               </a>
             ))}
           </div>
 
           {/* CTA */}
           <div className="flex items-center gap-4">
+            <div className="hidden lg:block">
+              <LanguageSwitcher variant="desktop" />
+            </div>
             <ContactChoice
               mode="call"
               align="right"
               wrapperClassName="hidden lg:block relative"
               className="flex items-center gap-2 border border-[#D4AF37]/40 px-5 py-2.5 text-[11px] font-light tracking-[0.18em] uppercase hover:bg-[#D4AF37]/15 hover:border-[#D4AF37] transition-all duration-300"
               style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
-              trigger={<><Phone size={12} /> Appeler</>}
+              trigger={<><Phone size={12} /> {t("call")}</>}
             />
-            <a href="/reservation"
+            <Link href="/reservation"
               className="hidden lg:flex items-center gap-2 bg-[#D4AF37] px-5 py-2.5 text-[11px] font-medium tracking-[0.18em] uppercase hover:bg-white transition-all duration-300"
               style={{ color: "#050505" }}>
-              Réserver
-            </a>
+              {t("book")}
+            </Link>
             <button onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden text-[#8A8A8A] hover:text-white transition-colors duration-300">
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -130,24 +141,30 @@ export default function Navigation() {
       <div className={`fixed inset-0 z-[85] bg-transparent backdrop-blur-sm flex flex-col justify-center px-8 transition-all duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
         <div className="space-y-6">
           {links.map((l) => (
-            <a key={l.href} href={resolve(l.href)} onClick={() => setMenuOpen(false)}
+            <a key={l.href} href={anchorHref(l.href)} onClick={() => setMenuOpen(false)}
               className="block text-[#A1A1AA] text-3xl font-light hover:text-white transition-colors duration-300"
               style={{ fontFamily: "var(--font-serif)" }}>
-              {l.label}
+              {t(l.key)}
             </a>
           ))}
         </div>
-        <a href="/reservation" onClick={() => setMenuOpen(false)}
+        <Link href="/reservation" onClick={() => setMenuOpen(false)}
           className="mt-8 block text-center bg-[#D4AF37] text-[#050505] py-4 text-sm font-medium tracking-[0.2em] uppercase hover:bg-white transition-colors">
-          Réserver en ligne
-        </a>
+          {t("bookOnline")}
+        </Link>
         <ContactChoice
           mode="call"
           align="left"
           wrapperClassName="mt-4 relative"
           className="flex items-center gap-3 text-[#D4AF37]"
-          trigger={<><Phone size={16} /> <span className="text-sm font-light tracking-[0.2em]">Appeler un chauffeur</span></>}
+          trigger={<><Phone size={16} /> <span className="text-sm font-light tracking-[0.2em]">{t("callDriver")}</span></>}
         />
+
+        {/* Language selector — mobile */}
+        <div className="mt-8 pt-6 border-t border-white/[0.08]">
+          <div className="text-[#707070] text-[10px] tracking-[0.3em] uppercase font-light mb-3">{t("language")}</div>
+          <LanguageSwitcher variant="mobile" />
+        </div>
       </div>
 
       {/* Fixed phone button mobile */}

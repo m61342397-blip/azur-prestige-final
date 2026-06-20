@@ -1,11 +1,14 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowRight, Phone } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 import ContactChoice from "@/components/ui/ContactChoice";
+import { Link } from "@/i18n/navigation";
 
 export default function ReservationCTA() {
+  const t = useTranslations("ReservationCTA");
   const secRef   = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const ctaRef   = useRef<HTMLDivElement>(null);
@@ -39,7 +42,7 @@ export default function ReservationCTA() {
     return unsub;
   }, []);
 
-  const tags = ["Confirmation immédiate","Tarif fixe garanti","Chauffeur professionnel","24h/7j"];
+  const tags = t.raw("tags") as string[];
 
   return (
     <section id="reservation" ref={secRef} className="relative py-32 lg:py-48 overflow-hidden border-t border-white/[0.04]">
@@ -58,30 +61,30 @@ export default function ReservationCTA() {
         <h2 ref={titleRef}
           className="font-light leading-tight mb-12"
           style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem,7vw,8rem)", opacity: 0, color: "#ffffff" }}>
-          <span style={{ color: "#ffffff" }}>Prêt à partir ?</span><br />
-          <span style={{ color: "#D4AF37" }}>Réservez maintenant.</span>
+          <span style={{ color: "#ffffff" }}>{t("titleLine1")}</span><br />
+          <span style={{ color: "#D4AF37" }}>{t("titleLine2")}</span>
         </h2>
 
         <div ref={ctaRef} className="flex items-center justify-center gap-4 flex-wrap mb-12" style={{ opacity: 1 }}>
           {/* Primary: online reservation form */}
-          <a href="/reservation"
+          <Link href="/reservation"
             className="group flex items-center gap-3 bg-[#D4AF37] text-[#050505] px-10 py-5 text-sm font-medium tracking-[0.12em] uppercase hover:bg-white transition-colors duration-300">
-            Réserver en ligne
+            {t("bookOnline")}
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-          </a>
+          </Link>
           <ContactChoice
             mode="call"
             align="center"
             className="flex items-center gap-3 px-10 py-5 text-sm font-light tracking-[0.12em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
             style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}
-            trigger={<><Phone size={14} /> Appeler</>}
+            trigger={<><Phone size={14} /> {t("call")}</>}
           />
           <ContactChoice
             mode="whatsapp"
             align="center"
             className="px-10 py-5 text-sm font-light tracking-[0.12em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
             style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.4)" }}
-            trigger={<>WhatsApp</>}
+            trigger={<>{t("whatsapp")}</>}
           />
         </div>
 

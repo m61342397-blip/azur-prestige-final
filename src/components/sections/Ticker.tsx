@@ -1,14 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-
-const items = [
-  "Transfert Aéroport","·","Chauffeur Privé","·","Tourisme Privé","·",
-  "Gare Saint-Charles","·","Événements VIP","·","Longues Distances","·",
-  "Disponible 24h/7j","·","Prix sur Devis","·","Paiement CB","·",
-];
+import { useTranslations } from "next-intl";
 
 export default function Ticker() {
+  const t = useTranslations("Ticker");
+  const words = t.raw("items") as string[];
+  // Intercale un séparateur « · » entre chaque libellé.
+  const items = words.flatMap((w) => [w, "·"]);
   const trackRef = useRef<HTMLDivElement>(null);
   const doubled = [...items, ...items];
 

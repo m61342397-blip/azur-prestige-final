@@ -1,20 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Plane, Train, Briefcase, Camera, Star, Navigation, HeartPulse, ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Plane, Train, Briefcase, Camera, Star, Navigation, HeartPulse, ShieldCheck, type LucideIcon } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 
-const services = [
-  { icon: Camera,      title: "Tourisme Accompagné",  subtitle: "Marseille · Provence",        desc: "Votre chauffeur reste à vos côtés toute la journée (~ 6 à 8h). Visites, pauses repas, escapades calanques — un accompagnement complet, sur mesure.", tag: "Notre spécialité" },
-  { icon: Plane,       title: "Transferts Aéroport",  subtitle: "MP · LYS · NCE",             desc: "Prise en charge dès l'atterrissage. Accueil personnalisé avec pancarte.", tag: "Prise en charge" },
-  { icon: Train,       title: "Prise en charge Gare", subtitle: "Saint-Charles · TGV",         desc: "Accueil à quai, aide aux bagages. Connexions TGV, Intercités et Eurostar. Ponctualité garantie.", tag: "Prise en charge" },
-  { icon: HeartPulse,  title: "Transport Médical",    subtitle: "Hôpitaux · Cliniques · RDV", desc: "Transferts médicalisés vers hôpitaux, cliniques et rendez-vous. Chauffeur attentif, véhicule adapté, discrétion assurée.", tag: null },
-  { icon: Briefcase,   title: "Déplacements Pro",     subtitle: "Business Class",              desc: "Contrat entreprise, facturation mensuelle, confidentialité totale. Chauffeur dédié sur demande.", tag: null },
-  { icon: Star,        title: "Événements",           subtitle: "Mariages · Galas · Soirées", desc: "Mise à disposition VIP pour mariages, galas et soirées. Flotte soignée, ponctualité absolue. Tarifs sur devis selon la durée et le véhicule.", tag: null },
-  { icon: Navigation,  title: "Longues Distances",    subtitle: "France & Europe",             desc: "Paris, Monaco, Nice, Lyon. Confort optimal sur la durée. Prix sur devis.", tag: null },
-];
+// Icônes (non traduites), dans l'ordre des libellés du fichier de messages.
+const ICONS: LucideIcon[] = [Camera, Plane, Train, HeartPulse, Briefcase, Star, Navigation];
 
 export default function Services() {
+  const t = useTranslations("Services");
+  const services = (t.raw("items") as { subtitle: string; desc: string; tag: string }[])
+    .map((m, i) => ({ ...m, icon: ICONS[i] }));
+
   const secRef    = useRef<HTMLDivElement>(null);
   const headRef   = useRef<HTMLDivElement>(null);
   const divRef    = useRef<HTMLDivElement>(null);
@@ -58,16 +56,15 @@ export default function Services() {
         <div ref={headRef} className="mb-16 lg:mb-20" style={{ opacity: 1 }}>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">Services</span>
+            <span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span>
           </div>
           <h2 className="font-light leading-tight text-white" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.25rem,5.5vw,5.5rem)" }}>
-            Découvrir Marseille,<br /><span className="text-[#A1A1AA]">accompagné de A à Z.</span>
+            {t("titleLine1")}<br /><span className="text-[#A1A1AA]">{t("titleLine2")}</span>
           </h2>
           <div className="mt-8 inline-flex items-start gap-3 border border-[#D4AF37]/30 px-4 py-3 bg-[#D4AF37]/[0.04]">
             <ShieldCheck size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
             <p className="text-[#A1A1AA] text-sm font-light leading-relaxed">
-              <span className="text-white">Taxi sous licence officielle de l'État</span> — un véritable taxi agréé,
-              et non un VTC se présentant à tort comme « agréé ».
+              <span className="text-white">{t("licenceStrong")}</span>{t("licenceText")}
             </p>
           </div>
         </div>

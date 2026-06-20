@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { engine } from "@/lib/engine";
 
-const words = [
-  { w: "PREMIUM",   sub: "Une flotte soignée, des chauffeurs formés.",  gold: true  },
-  { w: "PONCTUEL",  sub: "Suivi en temps réel. Zéro retard.",           gold: false },
-  { w: "DISCRET",   sub: "La confidentialité avant tout.",              gold: true  },
-  { w: "MARSEILLE", sub: "La ville comme terrain de jeu.",              gold: false },
-];
+// Couleur dorée par mot (structurel, non traduit).
+const GOLD = [true, false, true, false];
 
 export default function ScrollStory() {
+  const t = useTranslations("ScrollStory");
+  const words = (t.raw("words") as { w: string; sub: string }[]);
+
   const [sectionHeight, setSectionHeight] = useState(`${words.length * 110}vh`);
   const secRef     = useRef<HTMLDivElement>(null);
   const wordsRef   = useRef<HTMLDivElement[]>([]);
@@ -139,7 +139,7 @@ export default function ScrollStory() {
                 {/* Colour lives on the span: the global `h1..h5 !important`
                     rule would otherwise force these words to the (dark) circuit
                     --text-primary, making them invisible on the #060606 bg. */}
-                <span style={{ color: item.gold ? "#D4AF37" : "#FFFFFF" }}>{item.w}</span>
+                <span style={{ color: GOLD[i] ? "#D4AF37" : "#FFFFFF" }}>{item.w}</span>
               </h2>
               <p
                 ref={el => { if (el) subsRef.current[i] = el; }}

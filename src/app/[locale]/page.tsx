@@ -16,8 +16,32 @@ import ClientPhotos     from "@/components/sections/ClientPhotos";
 import ReservationCTA   from "@/components/sections/ReservationCTA";
 import FAQ              from "@/components/sections/FAQ";
 import Contact          from "@/components/sections/Contact";
+import type { Metadata } from "next";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import { buildAlternates } from "@/i18n/hreflang";
 
-export default function Home() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Meta" });
+  return {
+    title: t("homeTitle"),
+    description: t("description"),
+    alternates: buildAlternates("", locale),
+  };
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <main className="min-h-screen">
       {/* ── Persistent global layer — always above everything ── */}

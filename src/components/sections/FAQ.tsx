@@ -1,18 +1,14 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Plus, Minus } from "lucide-react";
 import { engine, Engine } from "@/lib/engine";
 
-const faqs = [
-  { q: "Comment réserver un taxi à Marseille ?", a: "Par téléphone, WhatsApp ou formulaire en ligne. Confirmation immédiate par SMS avec le nom et le numéro du chauffeur." },
-  { q: "Quels sont vos tarifs pour l'aéroport ?", a: "Tarif fixe depuis l'aéroport Marseille-Provence : 65€ vers le centre-ville." },
-  { q: "Êtes-vous disponibles la nuit et le week-end ?", a: "Oui, 24h/7j et 365 jours par an. Nos tarifs ne changent pas selon l'heure ou le jour." },
-  { q: "Proposez-vous des contrats entreprise ?", a: "Oui, facturation mensuelle, chauffeur dédié sur demande, reporting des courses. Contactez-nous pour un devis." },
-  { q: "Puis-je réserver pour un groupe ?", a: "Oui, notre Van (6 passagers) et Grand Van (8 passagers) sont disponibles pour groupes, avec grande soute à bagages." },
-];
-
 export default function FAQ() {
+  const t = useTranslations("FAQ");
+  const faqs = t.raw("items") as { q: string; a: string }[];
+
   const [open, setOpen] = useState<number | null>(null);
   const secRef   = useRef<HTMLDivElement>(null);
   const headRef  = useRef<HTMLDivElement>(null);
@@ -41,9 +37,9 @@ export default function FAQ() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24">
           <div ref={headRef} style={{ opacity: 1 }}>
-            <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">FAQ</span></div>
+            <div className="flex items-center gap-3 mb-6"><div className="w-8 h-px bg-[#D4AF37]" /><span className="text-[#D4AF37] text-xs tracking-[0.35em] uppercase font-light">{t("eyebrow")}</span></div>
             <h2 className="font-light leading-tight text-white" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem,4vw,4rem)" }}>
-              Questions<br /><span className="text-[#A1A1AA]">fréquentes.</span>
+              {t("titleLine1")}<br /><span className="text-[#A1A1AA]">{t("titleLine2")}</span>
             </h2>
           </div>
           <div className="space-y-px">

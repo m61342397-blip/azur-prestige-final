@@ -16,7 +16,20 @@
       "PowerShell($out = npm run build 2>&1; \"EXIT=$LASTEXITCODE\"; $out | Select-Object -Last 60)",
       "PowerShell($out = npx tsc --noEmit 2>&1; \"EXIT=$LASTEXITCODE\"; $out | Select-Object -First 30)",
       "PowerShell($out = npx tsc --noEmit 2>&1; \"TSC_EXIT=$LASTEXITCODE\"; $out | Select-Object -First 30; $b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-Object -Last 20)",
-      "PowerShell($out = npx tsc --noEmit 2>&1; \"TSC_EXIT=$LASTEXITCODE\"; $out | Select-Object -First 30; $b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Error|Failed|✓ Compiled|✓ Generating\" | Select-Object -First 20)"
+      "PowerShell($out = npx tsc --noEmit 2>&1; \"TSC_EXIT=$LASTEXITCODE\"; $out | Select-Object -First 30; $b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Error|Failed|✓ Compiled|✓ Generating\" | Select-Object -First 20)",
+      "PowerShell(npm install next-intl 2>&1 | Select-Object -Last 8; \"EXIT=$LASTEXITCODE\")",
+      "Bash(node -e \"console.log\\('next-intl', require\\('next-intl/package.json'\\).version\\)\")",
+      "Bash(mkdir -p \"src/app/[locale]\")",
+      "Bash(git mv *)",
+      "Read(//d/taxi-v4-modifie/taxi-v4/src/app/**)",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-Object -Last 45)",
+      "PowerShell(Move-Item \"src/middleware.ts\" \"src/proxy.ts\" -Force)",
+      "PowerShell(if \\($?\\) { \"renamed\" })",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-Object -Last 50)",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Error|Failed|Type error|✓ Compiled|✓ Generating|warn\" | Select-Object -First 40)",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Failed|Type error|✓ Compiled|✓ Generating\" | Select-Object -First 8)",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Error|Failed|Type error|Parsing|✓ Compiled|✓ Generating\" | Select-Object -First 30)",
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"Failed|Type error|✓ Compiled\" | Select-Object -First 5)"
     ]
   }
 }
