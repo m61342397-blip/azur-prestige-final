@@ -72,7 +72,7 @@ export default function Footer() {
                 className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors duration-300 flex items-center"
                 trigger={<MessageCircle size={16} />}
               />
-              <a href="mailto:contact@azurprestige.fr"
+              <a href="mailto:contact@azurprestige.eu"
                 className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors duration-300">
                 <Mail size={16} />
               </a>

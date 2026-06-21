@@ -356,7 +356,7 @@
     "privacyLabel": "Política de privacidad",
     "sections": [
       { "title": "1. Responsable del tratamiento", "blocks": [
-        "El responsable del tratamiento de los datos personales recogidos a través de este sitio es: Azur Prestige Taxi Marseille — contact@azurprestige.fr"
+        "El responsable del tratamiento de los datos personales recogidos a través de este sitio es: Azur Prestige Taxi Marseille — contact@azurprestige.eu"
       ]},
       { "title": "2. Datos recogidos", "blocks": [
         "Solo recogemos los siguientes datos cuando nos los facilita voluntariamente:",
@@ -425,7 +425,7 @@
           { "label": "Número de licencia profesional", "value": "01325515101" },
           { "label": "Dirección", "value": "Marsella, Bouches-du-Rhône (13), Francia" },
           { "label": "Teléfono", "value": "+33 6 66 32 38 17" },
-          { "label": "Email", "value": "contact@azurprestige.fr" }
+          { "label": "Email", "value": "contact@azurprestige.eu" }
         ]}
       ]},
       { "title": "2. Director de la publicación", "blocks": [

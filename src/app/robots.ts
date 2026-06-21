@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://azurprestige.fr/sitemap.xml',
+    sitemap: 'https://azurprestige.eu/sitemap.xml',
   }
 }

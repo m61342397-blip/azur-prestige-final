@@ -13,7 +13,7 @@ type Block =
 
 type LegalSection = { title: string; blocks: Block[] };
 
-const EMAIL = "contact@azurprestige.fr";
+const EMAIL = "contact@azurprestige.eu";
 
 /**
  * Page légale générique (CGV, confidentialité, mentions légales) rendue à partir

@@ -356,7 +356,7 @@
     "privacyLabel": "Politique de confidentialité",
     "sections": [
       { "title": "1. Responsable du traitement", "blocks": [
-        "Le responsable du traitement des données personnelles collectées via ce site est : Azur Prestige Taxi Marseille — contact@azurprestige.fr"
+        "Le responsable du traitement des données personnelles collectées via ce site est : Azur Prestige Taxi Marseille — contact@azurprestige.eu"
       ]},
       { "title": "2. Données collectées", "blocks": [
         "Nous collectons les données suivantes uniquement lorsque vous nous les transmettez volontairement :",
@@ -425,7 +425,7 @@
           { "label": "Numéro de carte professionnelle", "value": "01325515101" },
           { "label": "Adresse", "value": "Marseille, Bouches-du-Rhône (13), France" },
           { "label": "Téléphone", "value": "+33 6 66 32 38 17" },
-          { "label": "Email", "value": "contact@azurprestige.fr" }
+          { "label": "Email", "value": "contact@azurprestige.eu" }
         ]}
       ]},
       { "title": "2. Directeur de la publication", "blocks": [

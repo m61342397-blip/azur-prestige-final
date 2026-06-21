@@ -14,7 +14,7 @@ export default function Contact() {
   const channels = [
     { icon: Phone,         label: t("labelPhone"),    values: PHONES,                       sub: t("subPhone") },
     { icon: MessageCircle, label: t("labelWhatsapp"), values: PHONES,                       sub: t("subWhatsapp") },
-    { icon: Mail,          label: t("labelEmail"),    values: ["contact@azurprestige.fr"],  sub: t("subEmail") },
+    { icon: Mail,          label: t("labelEmail"),    values: ["contact@azurprestige.eu"],  sub: t("subEmail") },
     { icon: Clock,         label: t("labelHours"),    values: [t("hoursValue")],            sub: t("subHours") },
   ];
 
