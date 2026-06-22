@@ -19,6 +19,11 @@ import Contact          from "@/components/sections/Contact";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { buildAlternates } from "@/i18n/hreflang";
+import { buildJsonLd } from "@/lib/jsonLd";
+
+// Régénère la page (et donc le JSON-LD des avis) toutes les heures afin que les
+// nouveaux avis approuvés en base apparaissent sans redéploiement manuel (ISR).
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
@@ -41,9 +46,16 @@ export default async function Home({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const jsonLd = await buildJsonLd();
 
   return (
     <main className="min-h-screen">
+      {/* ── Données structurées : uniquement sur la page d'accueil ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* ── Persistent global layer — always above everything ── */}
       <GlobalAmbient />
       <Navigation />

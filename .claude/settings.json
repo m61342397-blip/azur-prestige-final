@@ -30,7 +30,8 @@
       "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Failed|Type error|✓ Compiled|✓ Generating\" | Select-Object -First 8)",
       "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"error|Error|Failed|Type error|Parsing|✓ Compiled|✓ Generating\" | Select-Object -First 30)",
       "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"Failed|Type error|✓ Compiled\" | Select-Object -First 5)",
-      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"Failed|Type error|Parsing|✓ Compiled|✓ Generating\" | Select-Object -First 6)"
+      "PowerShell($b = npm run build 2>&1; \"BUILD_EXIT=$LASTEXITCODE\"; $b | Select-String -Pattern \"Failed|Type error|Parsing|✓ Compiled|✓ Generating\" | Select-Object -First 6)",
+      "PowerShell(npx tsc --noEmit -p tsconfig.json 2>&1)"
     ]
   }
 }
